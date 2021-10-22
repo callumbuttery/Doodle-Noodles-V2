@@ -1,0 +1,112 @@
+.nav {
+    padding: 40px;
+    background-color: #333333;
+    color: white;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .nav a {
+    color: #fafafa;
+    font-size: 35px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-decoration: none;
+  }
+
+  .nav a:hover{
+      color: rgb(40, 153, 206);
+  }
+  
+  * {
+    margin: 0%;
+  }
+
+  .navButton {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: white;
+    font-size: 30px;
+    margin-left: 10px;
+  }
+
+  @media screen and (max-width: 650px) {
+    .nav {
+        padding: 40px;
+        background-color: #333333;
+        color: white;
+        overflow: hidden;
+        text-align: center;
+      }
+      
+      .nav a {
+        color: #fafafa;
+        font-size: 25px;
+        margin-left: 10px;
+        margin-right: 10px;
+        text-decoration: none;
+      }
+    
+      .nav a:hover{
+          color: rgb(40, 153, 206);
+      }
+      
+      * {
+        margin: 0%;
+      }
+    
+      .navButton {
+        background-color: transparent;
+        background-repeat: no-repeat;
+        border: none;
+        cursor: pointer;
+        overflow: hidden;
+        outline: none;
+        color: white;
+        font-size: 30px;
+        margin-left: 10px;
+      }
+  }
+
+
+  @media screen and (max-width: 530px) {
+    .nav {
+        padding: 40px;
+        background-color: #333333;
+        color: white;
+        overflow: hidden;
+        text-align: center;
+      }
+      
+      .nav a {
+        color: #fafafa;
+        font-size: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
+        text-decoration: none;
+      }
+    
+      .nav a:hover{
+          color: rgb(40, 153, 206);
+      }
+      
+      * {
+        margin: 0%;
+      }
+    
+      .navButton {
+        background-color: transparent;
+        background-repeat: no-repeat;
+        border: none;
+        cursor: pointer;
+        overflow: hidden;
+        outline: none;
+        color: white;
+        font-size: 30px;
+        margin-left: 10px;
+      }
+  }
