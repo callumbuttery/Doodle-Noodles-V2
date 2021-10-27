@@ -1,0 +1,46 @@
+.Title{
+    padding-top: 4%;
+    text-align: center;
+    color: white;
+}
+
+.mainContainer{
+    background-color: #002741;
+}
+
+.App {
+    text-align: center;
+    
+  }
+  
+
+  *{
+    margin: 0;
+  }
+
+
+  .secondaryContainer{
+    margin: 20px 20px 0 0;  
+    border: 5px solid #333;
+    overflow: auto
+  }
+
+  .WhatAreDoodleNoodlesLogo{
+      float: left;
+  }
+  .WhatAreDoodleNoodlesLogo img{
+      display: block;
+  }
+
+  .WhatAreDoodleNoodlesContent{
+    margin-left: 45%;
+    width: 50%;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+
+  }
+
+  .paragraphFont{
+      margin-top: 5%;
+  }
