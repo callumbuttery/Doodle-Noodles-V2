@@ -5,6 +5,7 @@
   h1{
     font-size: 30px;
     margin: 10px;
+    font-family: ccbiffbamboom, sans-serif;
   }
   
   .App-logo {
@@ -25,7 +26,12 @@
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    background-color: #FECC22;
+    background-image: url('../imgs/MainBanner.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: #FECC22 ;
+    background-position: center;
+    background-position-y: 100%;
   }
 
   *{
@@ -44,5 +50,9 @@
     to {
       transform: rotate(360deg);
     }
+  }
+
+  .mint{
+    margin: auto;
   }
   

@@ -6,6 +6,10 @@ h1{
   font-size: 20px;
 }
 
+*{
+  margin: 0%;
+}
+
 
 
 .App-logo {

@@ -1,4 +1,4 @@
-import logo from '../imgs/Logo2.png'
+import logo from '../imgs/Logo3.png'
 import '../css/welcome.css';
 import Timer from '../components/Timer';
 
