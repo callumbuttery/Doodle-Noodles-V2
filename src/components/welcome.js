@@ -5,7 +5,7 @@ import Timer from '../components/Timer';
 function welcome() {
 
     return (
-        <div id='mint'>
+        <div className='mint'>
             <div className="App">
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
