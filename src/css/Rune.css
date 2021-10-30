@@ -1,0 +1,14 @@
+.RuneContainer{
+    align-items: center;
+    justify-content: center;
+    background-color: #80D1EC;
+    background-image: url('../imgs/GoldenRunes.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 100%;
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 30%;
+}
+
