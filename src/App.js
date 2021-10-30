@@ -3,6 +3,7 @@ import Team from './components/Team.js'
 import Nav from './components/nav.js'
 import About from './components/About.js'
 import FAQ from './components/FAQ.js'
+import Footer from './components/Footer.js'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <About></About>
       <Team id='Team'></Team>
       <FAQ id='about'></FAQ>
+      <Footer></Footer>
     </div>
   );
 }
