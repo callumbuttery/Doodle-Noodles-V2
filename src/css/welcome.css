@@ -11,6 +11,7 @@
   .App-logo {
     height: 40vmin;
     pointer-events: none;
+    filter: drop-shadow(0 0 0.75rem #002741 );
   }
   
   @media (prefers-reduced-motion: no-preference) {
