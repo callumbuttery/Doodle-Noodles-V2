@@ -12,7 +12,7 @@ function App() {
       <Welcome id='Welcome'></Welcome>
       <About></About>
       <Team id='Team'></Team>
-      <FAQ></FAQ>
+      <FAQ id='about'></FAQ>
     </div>
   );
 }

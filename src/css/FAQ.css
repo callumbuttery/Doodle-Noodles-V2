@@ -3,12 +3,12 @@
     src: url('../fonts/MyriadProBlackSemiCondensed.otf');
   }
   
-  .Title{
+  .listItem{
       padding-top: 4%;
       text-align: left;
       color: white;
-      font-size: 35px;
-      font-family: ccbiffbamboom, sans-serif;
+      font-size: 20px;
+      color: #FF123F ;
   }
   
   .FQAMainContainer{
@@ -41,17 +41,16 @@
     .FQAcontent{
       margin-left: 45%;
       width: 50%;
-      color: white;
       font-size: 15px;
       text-align: center;
   
     }
   
-    .paragraphFont{
-        margin-top: 5%;
+    .FQAParagraphFont{
+        margin-top: 2%;
         text-align: left;
         width: 70%;
-        margin-left: 2%;
+        margin-left: 4%;
     }
   
     .FQALogo{
@@ -63,9 +62,4 @@
       margin-left:10%; 
     }
   
-    .hr{
-      width: '70%'; 
-      margin-left: '2%';
-      border-color: #FF123F; 
-    }
   
