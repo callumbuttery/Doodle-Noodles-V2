@@ -12,7 +12,7 @@ class Timer extends Component {
 
     }
     componentDidMount() {
-        setInterval(() => this.calculateTime('November, 21, 2021'), 1000);
+        setInterval(() => this.calculateTime('November, 28, 2021'), 1000);
     }
 
     calculateTime(launchDate) {
@@ -33,7 +33,7 @@ class Timer extends Component {
     render() {
         return (
             <div>
-                <div style={{ color: '#002741', fontFamily: 'ccbiffbamboom' }}>{this.state.day} : {this.state.hour} : {this.state.minute} : {this.state.second}</div>
+                <div style={{ color: '#002741', fontFamily: 'ccbiffbamboom', 'margin-top': '10%' }}>{this.state.day} : {this.state.hour} : {this.state.minute} : {this.state.second}</div>
             </div>
         );
     }
