@@ -4,6 +4,7 @@ import Nav from './components/nav.js'
 import About from './components/About.js'
 import FAQ from './components/FAQ.js'
 import Rune from './components/Rune.js'
+import RarityGuide from './components/RarityGuide.js'
 import Footer from './components/Footer.js'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Team id='Team'></Team>
       <FAQ id='about'></FAQ>
       <Rune></Rune>
+      <RarityGuide></RarityGuide>
       <Footer></Footer>
     </div>
   );

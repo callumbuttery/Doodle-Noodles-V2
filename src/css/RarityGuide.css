@@ -1,0 +1,12 @@
+.RarityContainer{
+    align-items: center;
+    justify-content: center;
+    background-color: #FF123F ;
+    background-image: url('../imgs/Rarities.png');
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 50%;
+    padding-top: 12%;
+    padding-bottom: 37%;
+}
