@@ -1,8 +1,3 @@
-@font-face {
-  font-family: 'navFont';
-  src: url('../fonts/MyriadProBlackSemiCondensed.otf');
-}
-
 .Title{
     padding-top: 4%;
     text-align: left;
@@ -59,7 +54,6 @@
     margin-bottom: 5%;
     height: 20%;
     width: 30%;
-
     margin-left:10%; 
   }
 
@@ -68,3 +62,86 @@
     margin-left: '2%';
     border-color: #FF123F; 
   }
+
+  @font-face {
+    font-family: 'navFont';
+    src: url('../fonts/MyriadProBlackSemiCondensed.otf');
+  }
+
+  @media screen and (max-width: 900px) {
+    .Title{
+      padding-top: 4%;
+      text-align: left;
+      color: white;
+      font-size: 25px;
+      font-family: ccbiffbamboom, sans-serif;
+  }
+}
+
+  @media screen and (max-width: 770px) {
+  .Title{
+      padding-top: 4%;
+      text-align: left;
+      color: white;
+      font-size: 20px;
+      font-family: ccbiffbamboom, sans-serif;
+  }
+  .WhatAreDoodleNoodlesContent{
+    margin-left: 45%;
+    width: 50%;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .Title{
+      padding-top: 10%;
+      text-align: left;
+      color: white;
+      font-size: 20px;
+      font-family: ccbiffbamboom, sans-serif;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .Title{
+    padding-top: 10%;
+    text-align: left;
+    color: white;
+    font-size: 20px;
+    font-family: ccbiffbamboom, sans-serif;
+  }
+  .WhatAreDoodleNoodlesContent{
+    color: white;
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 30px;
+    width: 100%;
+    margin-left: 0%;
+  }
+
+  .WhatAreDoodleNoodlesLogo{
+    display: none;
+  }
+  .WhatAreDoodleNoodlesLogo img{
+    display: none ;
+  }
+
+  .paragraphFont{
+    margin-top: 5%;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .Title{
+    padding-top: 10%;
+    text-align: left;
+    color: white;
+    font-size: 15px;
+    font-family: ccbiffbamboom, sans-serif;
+  }
+}
