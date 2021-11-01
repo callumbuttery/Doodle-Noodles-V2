@@ -31,3 +31,77 @@
   padding-bottom: 10%;
   color: white;
 }
+
+@media screen and (max-width: 800px) {
+  .TeamContainer{
+    align-items: center;
+    justify-content: center;
+    background-color: #FF123F ;
+    background-image: url('../imgs/teambackground3.png');
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 100%;
+    padding-top: 0%;
+  }
+
+  .TeamTitle{
+    text-align: center;
+    position: relative;
+    color: white;
+  }
+  
+  .TeamHR{
+    margin: auto;
+    width: 30%;
+    border-color: black;
+  }
+  
+  .TeamText{
+    text-align: center;
+    width: 40%;
+    position: relative;
+    margin-left: 30%;
+    padding-top: 20px;
+    padding-bottom: 10%;
+    color: white;
+  }
+  
+}
+
+@media screen and (max-width: 600px) {
+  .TeamContainer{
+    align-items: center;
+    justify-content: center;
+    background-color: #FF123F ;
+    background-image: url('../imgs/teambackground3.png');
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 50%;
+    padding-top: 0%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .TeamContainer{
+    align-items: center;
+    justify-content: center;
+    background-color: #FF123F ;
+    background-image: none;
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 50%;
+    padding-top: 0%;
+  }
+
+  .TeamText{
+    text-align: left;
+    width: 90%;
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 10%;
+    color: white;
+    margin-left: 5%;
+  }
+}
