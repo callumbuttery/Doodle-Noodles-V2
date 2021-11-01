@@ -5,26 +5,20 @@ import twitterIcon from '../imgs/twitter-icon.png'
 
 function Team() {
     return (
-        <div id='team'>
-            <div className="background">
-                <h1>Meet the team</h1>
-                <div>
-                    <div className="container">
-                        <div className="column">
-                            <div className="margin-right">
-                                <img src={cairnsArt} className="picture" alt='test' />
-                            </div>
-                        </div>
-                        <div>
-                        </div>
-                        <div className="column">
-                            <div className="margin-right">
-                                <img src={callumArt} className="picture" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div className='TeamContainer'>
+            <h1 className="TeamTitle">Meet the team</h1>
+            <hr className="TeamHR" />
+            <p className="TeamText">We are two ordinary Scottish guys, passionate
+                about NFTs and the world of blockchain, looking
+                to innovate with our project and bring something
+                new to the space
+
+                <br />
+                <br />
+                The aim of this project is to build an amazing
+                community based around creativity and innovation
+                and above all - having fun together
+            </p>
         </div>
     )
 }

@@ -9,8 +9,8 @@ function footer() {
     return (
         <div className="footer">
             <div>
-                <p className="hashtag">#WeLikeTheSneks</p>
                 <img src={logo} className='Footerlogo'></img>
+                <p className="hashtag">#WeLikeTheSneks</p>
                 <a href="https://twitter.com/DoodleNoodleNFT" target='_blank'
                 ><img src={FootertwitterIconRed} className="FooterIconTwitter"
                     /></a>
