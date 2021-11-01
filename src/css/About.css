@@ -131,17 +131,30 @@
   }
 
   .paragraphFont{
+    margin-left: 20px;
     margin-top: 5%;
     text-align: left;
+  }
+
+  .hr{
+    width: 70%; 
+    margin-left: 22%;
+    border-color: #FF123F; 
   }
 }
 
 @media screen and (max-width: 400px) {
   .Title{
     padding-top: 10%;
-    text-align: left;
+    text-align: center;
     color: white;
     font-size: 15px;
     font-family: ccbiffbamboom, sans-serif;
+  }
+
+  .hr{
+    width: 60%; 
+    margin-left: 20%;
+    border-color: #FF123F; 
   }
 }
