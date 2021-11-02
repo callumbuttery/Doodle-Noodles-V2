@@ -5,7 +5,6 @@ import About from './components/About.js'
 import FAQ from './components/FAQ.js'
 import Rune from './components/Rune.js'
 import RarityGuide from './components/RarityGuide.js'
-import Footer from './components/Footer.js'
 
 function App() {
 
@@ -18,7 +17,6 @@ function App() {
       <FAQ id='about'></FAQ>
       <Rune></Rune>
       <RarityGuide></RarityGuide>
-      <Footer></Footer>
     </div>
   );
 }
