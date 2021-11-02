@@ -18,3 +18,301 @@
     color: white;
 }
 
+.RuneTitle{
+    visibility: hidden;
+    text-align: center;
+    width: 50%;
+    position: relative;
+    margin-left: 25%;
+    color: white;
+    font-size: 30px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-family: ccbiffbamboom, sans-serif;
+}
+
+@media screen and (max-width: 1200px) {
+    .RuneText{
+        width: 20%;
+        position: absolute;
+        margin-left: 46%;
+        color: white;
+        font-size: 13px;
+    }
+
+    .RuneTitle{
+        visibility: hidden;
+        text-align: center;
+        width: 50%;
+        position: relative;
+        margin-left: 25%;
+        color: white;
+        font-size: 30px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        font-family: ccbiffbamboom, sans-serif;
+    }
+    
+}
+
+@media screen and (max-width: 1000px) {
+    .RuneText{
+        width: 40%;
+        position: absolute;
+        margin-left: 46%;
+        color: white;
+        font-size: 16px;
+    }
+
+    .RuneTitle{
+        visibility: hidden;
+        text-align: center;
+        width: 50%;
+        position: relative;
+        margin-left: 25%;
+        color: white;
+        font-size: 30px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        font-family: ccbiffbamboom, sans-serif;
+    }
+
+    .RuneContainer{
+        align-items: center;
+        justify-content: center;
+        background-color: #80D1EC;
+        background-image: url('../imgs/GoldenRunes2.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position-y: 70%;
+        padding-top: 4%;
+        padding-bottom: 34%;
+    }
+    
+}
+
+@media screen and (max-width: 765px) {
+    .RuneText{
+        width: 50%;
+        position: absolute;
+        margin-left: 46%;
+        color: white;
+        font-size: 16px;
+    }
+
+    .RuneContainer{
+        align-items: center;
+        justify-content: center;
+        background-color: #80D1EC;
+        background-image: url('../imgs/GoldenRunes2.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position-y: 70%;
+        padding-top: 4%;
+        padding-bottom: 34%;
+    }
+
+    .RuneTitle{
+        visibility: hidden;
+        text-align: center;
+        width: 50%;
+        position: relative;
+        margin-left: 25%;
+        color: white;
+        font-size: 30px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        font-family: ccbiffbamboom, sans-serif;
+    }
+    
+}
+
+
+@media screen and (max-width: 715px) {
+    .RuneText{
+        width: 50%;
+        position: absolute;
+        margin-left: 46%;
+        color: white;
+        font-size: 14px;
+    }
+
+    .RuneContainer{
+        align-items: center;
+        justify-content: center;
+        background-color: #80D1EC;
+        background-image: url('../imgs/GoldenRunes2.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position-y: 70%;
+        padding-top: 4%;
+        padding-bottom: 34%;
+    }
+
+    .RuneTitle{
+        visibility: hidden;
+        text-align: center;
+        width: 50%;
+        position: relative;
+        margin-left: 25%;
+        color: white;
+        font-size: 30px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        font-family: ccbiffbamboom, sans-serif;
+    }
+    
+}
+
+
+@media screen and (max-width: 650px) {
+    .RuneText{
+        width: 50%;
+        position: absolute;
+        margin-left: 25%;
+        color: white;
+        font-size: 14px;
+    }
+
+    .RuneContainer{
+        align-items: center;
+        justify-content: center;
+        background-color: #80D1EC;
+        background-image: none;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position-y: 70%;
+        padding-top: 4%;
+        padding-bottom: 50%;
+    }
+
+    .RuneTitle{
+        visibility: visible;
+        text-align: center;
+        width: 50%;
+        position: relative;
+        margin-left: 25%;
+        color: white;
+        font-size: 30px;
+        margin-bottom: 30px;
+        margin-top: 10px;
+        font-family: ccbiffbamboom, sans-serif;
+    }
+    
+}
+
+
+
+@media screen and (max-width: 550px) {
+    .RuneText{
+        width: 70%;
+        position: absolute;
+        margin-left: 15%;
+        color: white;
+        font-size: 14px;
+    }
+
+    .RuneContainer{
+        align-items: center;
+        justify-content: center;
+        background-color: #80D1EC;
+        background-image: none;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position-y: 70%;
+        padding-top: 4%;
+        padding-bottom: 50%;
+    }
+
+    .RuneTitle{
+        visibility: visible;
+        text-align: center;
+        width: 50%;
+        position: relative;
+        margin-left: 25%;
+        color: white;
+        font-size: 30px;
+        margin-bottom: 30px;
+        margin-top: 10px;
+        font-family: ccbiffbamboom, sans-serif;
+    }
+    
+}
+
+@media screen and (max-width: 450px) {
+    .RuneText{
+        width: 80%;
+        position: absolute;
+        margin-left: 15%;
+        color: white;
+        font-size: 14px;
+    }
+
+    .RuneContainer{
+        align-items: center;
+        justify-content: center;
+        background-color: #80D1EC;
+        background-image: none;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position-y: 70%;
+        padding-top: 4%;
+        padding-bottom: 75%;
+    }
+
+    .RuneTitle{
+        visibility: visible;
+        text-align: center;
+        width: 50%;
+        position: relative;
+        margin-left: 25%;
+        color: white;
+        font-size: 30px;
+        margin-bottom: 30px;
+        margin-top: 10px;
+        font-family: ccbiffbamboom, sans-serif;
+    }
+    
+}
+@media screen and (max-width: 350px) {
+    .RuneText{
+        width: 80%;
+        position: absolute;
+        margin-left: 15%;
+        color: white;
+        font-size: 14px;
+    }
+
+    .RuneContainer{
+        align-items: center;
+        justify-content: center;
+        background-color: #80D1EC;
+        background-image: none;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position-y: 70%;
+        padding-top: 4%;
+        padding-bottom: 85%;
+    }
+
+    .RuneTitle{
+        visibility: visible;
+        text-align: center;
+        width: 50%;
+        position: relative;
+        margin-left: 25%;
+        color: white;
+        font-size: 30px;
+        margin-bottom: 30px;
+        margin-top: 10px;
+        font-family: ccbiffbamboom, sans-serif;
+    }
+    
+}

@@ -3,6 +3,7 @@ import '../css/Rune.css'
 function Rune() {
     return (
         <div className="RuneContainer">
+            <h3 className="RuneTitle">Rune System</h3>
             <p className="RuneText">
                 Our Golden Rune system allows
                 5 lucky minters to have a
