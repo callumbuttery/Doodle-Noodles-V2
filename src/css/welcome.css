@@ -21,14 +21,14 @@
   }
   
   .App-header {
-    min-height: 50vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
     background-image: url('../imgs/MainBanner.png');
-    background-size: 90%;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-color: #FECC22 ;
     background-position: center;
@@ -88,12 +88,13 @@
       align-items: center;
       justify-content: center;
       font-size: calc(10px + 2vmin);
-      background-image: url('../imgs/MainBanner.png');
+      background-image: url('../imgs/SnakeBannerTransparent.png');
       background-size: 90%;
       background-repeat: no-repeat;
       background-color: #FECC22 ;
       background-position: center;
       background-position-y: 100%;
+      width: 100%;
     }
   
     *{
