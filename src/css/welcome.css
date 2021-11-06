@@ -28,11 +28,12 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     background-image: url('../imgs/MainBanner.png');
-    background-size: 100%;
+    background-size: 110%;
     background-repeat: no-repeat;
     background-color: #FECC22 ;
     background-position: center;
-    background-position-y: 100%;
+    background-position-y: 110%;
+    padding-top: 10%;
   }
 
   *{
@@ -88,14 +89,14 @@
       align-items: center;
       justify-content: center;
       font-size: calc(10px + 2vmin);
-      background-image: url('../imgs/SnakeBannerTransparent.png');
+      background-image: src('../imgs/SnakeBannerTransparent.png');
       background-size: 90%;
       background-repeat: no-repeat;
       background-color: #FECC22 ;
       background-position: center;
       background-position-y: 100%;
       width: 100%;
-      margin-top: 50px;
+      border:none;
     }
   
     *{
@@ -151,13 +152,14 @@
       align-items: center;
       justify-content: center;
       font-size: calc(10px + 2vmin);
-      background-image: url('../imgs/SnakeBannerTransparent.png');
+      background-image: src('../imgs/SnakeBannerTransparent.png');
       background-size: 90%;
       background-repeat: no-repeat;
       background-color: #FECC22 ;
       background-position: center;
       background-position-y: 100%;
       width: 100%;
+      border: none;
     }
   
     *{
