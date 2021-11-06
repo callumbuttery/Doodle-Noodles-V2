@@ -1,0 +1,23 @@
+  .nav2{
+    background-color: #002741;
+  }
+
+  .NavItem{
+    color: white;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: white;
+    font-size: 30px;
+    margin-left: 10px;
+    font-family: navFont;
+    background-color: transparent;
+  }
+
+  .custom-toggler.navbar-toggler {
+    border-color: rgb(255,102,203);
+  } 
+
