@@ -3,6 +3,9 @@ import '../css/Nav2.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import { Link } from 'react-scroll';
 import { Nav, Navbar, Button } from 'react-bootstrap'
+import discordIcon from '../imgs/Discord-Logo.png';
+import twitterIconRed from '../imgs/twitter-icon-red.png';
+
 import { BsMenuButtonWide } from "react-icons/bs";
 
 
@@ -21,6 +24,11 @@ function Nav2() {
                         <button className='NavItem'><Link to="TeamContainer">Team</Link></button>
                         <button className='NavItem'><Link to="FQAMainContainer">About</Link></button>
                         <button className='NavItem'><Link to="Team">Roadmap</Link></button>
+                        <a href="https://discord.com/invite/rReed6g5" target='_blank'
+                        ><img src={discordIcon} className="NavIconDiscord" /></a>
+
+                        <a href="https://twitter.com/DoodleNoodleNFT" target='_blank'
+                        ><img src={twitterIconRed} className="NavIconTwitter" /></a>
                     </Nav>
                 </Navbar.Collapse>
 
