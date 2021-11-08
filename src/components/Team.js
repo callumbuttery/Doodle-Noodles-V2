@@ -8,7 +8,7 @@ function Team() {
         <div className='TeamContainer'>
             <h1 className="TeamTitle">Meet the team</h1>
             <hr className="TeamHR" />
-            <p className="TeamText">We are two ordinary Scottish guys, passionate
+            <p className="TeamText" style={{ paddingBottom: 0 }}>We are two ordinary Scottish guys, passionate
                 about NFTs and the world of blockchain, looking
                 to innovate with our project and bring something
                 new to the space
