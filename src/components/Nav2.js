@@ -3,6 +3,8 @@ import '../css/Nav2.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import { Link } from 'react-scroll';
 import { Nav, Navbar, Button } from 'react-bootstrap'
+import { BsMenuButtonWide } from "react-icons/bs";
+
 
 function Nav2() {
     return (
@@ -12,7 +14,7 @@ function Nav2() {
                     <img src={logo} width="200px" height="50px" style={{ marginLeft: '50px' }} />
                 </Navbar.Brand>
 
-                <Navbar.Toggle style={{ color: '#fff' }} />
+                <Navbar.Toggle style={{ backgroundColor: "white" }}></Navbar.Toggle>
                 <Navbar.Collapse>
                     <Nav className="justify-content-end" style={{ width: "95%" }}>
                         <button className='NavItem'><Link to="mint">Mint</Link></button>
