@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
 .RarityContainer{
     align-items: center;
     justify-content: center;
@@ -25,7 +27,7 @@
 
 .RarityGuideTitle{
     font-size: 35px;
-    font-family: ccbiffbamboom, sans-serif;
+    font-family: 'Fredoka One', cursive;
     text-align: center;
     visibility: visible;
 }
@@ -63,7 +65,7 @@
     
     .RarityGuideTitle{
         font-size: 35px;
-        font-family: ccbiffbamboom, sans-serif;
+        font-family: 'Fredoka One', cursive;
         text-align: center;
         visibility: hidden;
     }
@@ -102,7 +104,7 @@
     
     .RarityGuideTitle{
         font-size: 35px;
-        font-family: ccbiffbamboom, sans-serif;
+        font-family: 'Fredoka One', cursive;
         text-align: center;
         visibility: hidden;
     }
@@ -141,7 +143,7 @@
     
     .RarityGuideTitle{
         font-size: 35px;
-        font-family: ccbiffbamboom, sans-serif;
+        font-family: 'Fredoka One', cursive;
         text-align: center;
         visibility: hidden;
     }
@@ -180,7 +182,7 @@
     
     .RarityGuideTitle{
         font-size: 35px;
-        font-family: ccbiffbamboom, sans-serif;
+        font-family: 'Fredoka One', cursive;
         text-align: center;
         visibility: hidden;
     }

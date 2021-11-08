@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
 .Title{
     padding-top: 4%;
     text-align: left;
     color: white;
     font-size: 35px;
-    font-family: ccbiffbamboom, sans-serif;
+    font-family: 'Fredoka One', cursive;
 }
 
 .mainContainer{
@@ -74,7 +76,7 @@
       text-align: left;
       color: white;
       font-size: 25px;
-      font-family: ccbiffbamboom, sans-serif;
+      font-family: 'Fredoka One', cursive;
   }
 }
 
@@ -84,7 +86,7 @@
       text-align: left;
       color: white;
       font-size: 20px;
-      font-family: ccbiffbamboom, sans-serif;
+      font-family: 'Fredoka One', cursive;
   }
   .WhatAreDoodleNoodlesContent{
     margin-left: 45%;
@@ -102,7 +104,7 @@
       text-align: left;
       color: white;
       font-size: 20px;
-      font-family: ccbiffbamboom, sans-serif;
+      font-family: 'Fredoka One', cursive;
   }
 }
 
@@ -112,7 +114,7 @@
     text-align: left;
     color: white;
     font-size: 20px;
-    font-family: ccbiffbamboom, sans-serif;
+    font-family: 'Fredoka One', cursive;
   }
   .WhatAreDoodleNoodlesContent{
     color: white;
@@ -149,7 +151,7 @@
     text-align: center;
     color: white;
     font-size: 15px;
-    font-family: ccbiffbamboom, sans-serif;
+    font-family: 'Fredoka One', cursive;
   }
 
   .hr{
