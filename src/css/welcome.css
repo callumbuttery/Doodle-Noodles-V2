@@ -1,67 +1,132 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
-.App {
-    text-align: center;
+  @media screen and (min-width: 1600px) {
+    .App {
+        text-align: center;
+      }
+      
+      h1{
+        font-size: 30px;
+        padding-top: 20px;
+        font-family: 'Fredoka One', cursive;
+      }
+      
+      .App-logo {
+        height: 15vmin;
+        pointer-events: none;
+        filter: drop-shadow(0 0 0.75rem #002741 );
+      }
+      
+      @media (prefers-reduced-motion: no-preference) {
+        .App-logo {
+          animation: App-logo-spin infinite 20s linear;
+        }
+      }
+
+      
+      .App-header {
+        min-height: 45vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: calc(10px + 2vmin);
+        background-image: url('../imgs/SnakeBannerTransparentShort.png');
+        background-repeat: no-repeat;
+        background-color: #FECC22 ;   
+        background-position: center;
+        background-position-y: 110%;
+        aspect-ratio: auto;
+        position: static;
+      }
+
+      *{
+        margin: 0;
+      }
+
+      
+      .App-link {
+        color: #61dafb;
+      }
+      
+      @keyframes App-logo-spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .mint{
+        margin-bottom: 0%;
+      }
   }
-  
-  h1{
-    font-size: 30px;
-    padding-top: 20px;
-    font-family: 'Fredoka One', cursive;
-  }
-  
-  .App-logo {
-    height: 15vmin;
-    pointer-events: none;
-    filter: drop-shadow(0 0 0.75rem #002741 );
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  }
-  
-  .App-header {
-    min-height: 45vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    background-image: url('../imgs/MainBanner.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-color: #FECC22 ;
-    background-position: center;
-    background-position-y: 110%;
-    padding-top: 10%;
+  @media screen and (max-width: 1600px) {
+    .App {
+        text-align: center;
+      }
+      
+      h1{
+        font-size: 30px;
+        padding-top: 20px;
+        font-family: 'Fredoka One', cursive;
+      }
+      
+      .App-logo {
+        height: 15vmin;
+        pointer-events: none;
+        filter: drop-shadow(0 0 0.75rem #002741 );
+      }
+      
+      @media (prefers-reduced-motion: no-preference) {
+        .App-logo {
+          animation: App-logo-spin infinite 20s linear;
+        }
+      }
+
+      
+      .App-header {
+        min-height: 45vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: calc(10px + 2vmin);
+        background-image: url('../imgs/SnakeBannerTransparentShort.png');
+        background-repeat: no-repeat;
+        background-color: #FECC22 ;   
+        background-position: center;
+        background-position-y: 110%;
+        padding-top: 10%;
+        aspect-ratio: auto;
+        position: static;
+      }
+
+      *{
+        margin: 0;
+      }
+
+      
+      .App-link {
+        color: #61dafb;
+      }
+      
+      @keyframes App-logo-spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .mint{
+        margin-bottom: 0%;
+      }
   }
 
-  *{
-    margin: 0;
-  }
-
-  
-  .App-link {
-    color: #61dafb;
-  }
-  
-  @keyframes App-logo-spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  .mint{
-    margin-bottom: 0%;
-  }
-  
-
-  @media screen and(width: 1900px) {
+  @media screen and (max-width: 1600px) {
     .App {
       text-align: center;
     }
@@ -85,19 +150,20 @@
     }
     
     .App-header {
-      min-height: 35vh;
+      min-height: 45vh;
+      display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       font-size: calc(10px + 2vmin);
-      background-image: src('../imgs/SnakeBannerTransparent.png');
-      background-size: 90%;
+      background-image: url('../imgs/SnakeBannerTransparentShort.png');
       background-repeat: no-repeat;
-      background-color: #FECC22 ;
+      background-color: #FECC22 ;   
       background-position: center;
-      background-position-y: 100%;
-      width: 100%;
-      border:none;
+      background-position-y: 110%;
+      padding-top: 10%;
+      aspect-ratio: auto;
+      position: static;
     }
   
     *{
@@ -123,7 +189,7 @@
     }
     
   }
-  @media screen and(width: 1300px) {
+  @media screen and (max-width: 1300px) {
     .App {
       text-align: center;
     }
@@ -147,20 +213,83 @@
     }
     
     .App-header {
-      min-height: 50vh;
+      min-height: 45vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       font-size: calc(10px + 2vmin);
-      background-image: src('../imgs/SnakeBannerTransparent.png');
-      background-size: 90%;
+      background-image: url('../imgs/SnakeBannerTransparentShortest.png');
       background-repeat: no-repeat;
-      background-color: #FECC22 ;
+      background-color: #FECC22 ;   
       background-position: center;
-      background-position-y: 100%;
-      width: 100%;
-      border: none;
+      background-position-y: 110%;
+      padding-top: 10%;
+      aspect-ratio: auto;
+      position: static;
+    }
+  
+    *{
+      margin: 0;
+    }
+  
+    
+    .App-link {
+      color: #61dafb;
+    }
+    
+    @keyframes App-logo-spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  
+    .mint{
+      margin-bottom: 0%;
+    }
+    
+  }
+  @media screen and (max-width: 1000px) {
+    .App {
+      text-align: center;
+    }
+    
+    h1{
+      font-size: 30px;
+      padding-top: 20px;
+      font-family: 'Fredoka One', cursive;
+    }
+    
+    .App-logo {
+      height: 15vmin;
+      pointer-events: none;
+      filter: drop-shadow(0 0 0.75rem #002741 );
+    }
+    
+    @media (prefers-reduced-motion: no-preference) {
+      .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+      }
+    }
+    
+    .App-header {
+      min-height: 45vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: calc(10px + 2vmin);
+      background-image: none;
+      background-repeat: no-repeat;
+      background-color: #FECC22 ;   
+      background-position: center;
+      background-position-y: 10%;
+      padding-top: 10%;
+      aspect-ratio: auto;
+      position: static;
     }
   
     *{
