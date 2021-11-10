@@ -5,7 +5,7 @@ function FAQ() {
     return (
         <div className='FQAMainContainer'>
             <div className='secondaryContainer'>
-                <img src={FAQimg} className='FQALogo'></img>
+                <img src={FAQimg} className='FQALogo' alt="FQA"></img>
                 <div className="FQAcontent">
                     <h2 className='listItem'>1. When will the Noodles launch?</h2>
                     <p className='FQAParagraphFont'>We will be having a presale for our whitelisted members

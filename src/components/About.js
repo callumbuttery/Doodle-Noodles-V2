@@ -5,7 +5,7 @@ function about() {
     return (
         <div className='mainContainer'>
             <div className='secondaryContainer'>
-                <img src={WhatAreDoodleNoodles} className='WhatAreDoodleNoodlesLogo'></img>
+                <img src={WhatAreDoodleNoodles} className='WhatAreDoodleNoodlesLogo' alt="Doodle Noodles"></img>
                 <div className="WhatAreDoodleNoodlesContent">
                     <h1 className='Title'>What are Doodle Noodles?</h1>
                     <hr className='hr'></hr>
