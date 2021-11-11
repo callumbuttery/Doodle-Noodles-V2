@@ -1,8 +1,4 @@
 import '../css/Team.css'
-import cairnsArt from '../imgs/GRIN.png'
-import callumArt from '../imgs/BUTTERY.png'
-import twitterIcon from '../imgs/twitter-icon.png'
-
 function Team() {
     return (
         <div className='TeamContainer'>
