@@ -4,7 +4,7 @@
     padding-top: 4%;
     text-align: left;
     color: white;
-    font-size: 35px;
+    font-size: 45px;
     font-family: 'Fredoka One', cursive;
 }
 
@@ -49,6 +49,7 @@
       text-align: left;
       width: 70%;
       margin-left: 2%;
+      font-size: 20px;
   }
 
   .WhatAreDoodleNoodlesLogo{
@@ -134,9 +135,10 @@
   }
 
   .paragraphFont{
-    margin-left: 20px;
+    margin-left: 15%;
     margin-top: 5%;
-    text-align: left;
+    text-align: center;
+    font-size: 10px;
   }
 
   .hr{
