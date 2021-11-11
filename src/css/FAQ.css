@@ -7,8 +7,9 @@
       padding-top: 4%;
       text-align: left;
       color: white;
-      font-size: 20px;
-      color: #FF123F ;
+      font-size: 40px;
+      color: #FF123F;
+      font-family: 'Fredoka One', cursive;
   }
   
   .FQAMainContainer{
@@ -53,6 +54,7 @@
         text-align: left;
         width: 70%;
         margin-left: 4%;
+        font-size: 25px;
     }
   
     .FQALogo{

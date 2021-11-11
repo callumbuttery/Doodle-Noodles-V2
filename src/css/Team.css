@@ -17,6 +17,7 @@
   position: relative;
   color: white;
   font-size: 65px;
+  font-family: 'Fredoka One', cursive;
 }
 
 .TeamHR{
@@ -100,7 +101,7 @@
   }
 
   .TeamText{
-    text-align: left;
+    text-align: center;
     width: 90%;
     position: relative;
     padding-top: 20px;
