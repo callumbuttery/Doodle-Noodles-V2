@@ -18,6 +18,7 @@
     position: absolute;
     margin-left: 46%;
     color: white;
+    font-size: 22px;
 }
 
 .RuneTitle{
@@ -33,13 +34,13 @@
     font-family: 'Fredoka One', cursive;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1900px) {
     .RuneText{
         width: 20%;
         position: absolute;
         margin-left: 46%;
         color: white;
-        font-size: 13px;
+        font-size: 20px;
     }
 
     .RuneTitle{
@@ -53,6 +54,88 @@
         margin-bottom: 0px;
         margin-top: 0px;
         font-family: 'Fredoka One', cursive;
+    }
+    
+}
+@media screen and (max-width: 1650px) {
+    .RuneText{
+        width: 20%;
+        position: absolute;
+        margin-left: 46%;
+        color: white;
+        font-size: 17px;
+    }
+
+    .RuneTitle{
+        visibility: hidden;
+        text-align: center;
+        width: 50%;
+        position: relative;
+        margin-left: 25%;
+        color: white;
+        font-size: 30px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        font-family: 'Fredoka One', cursive;
+    }
+    
+}
+@media screen and (max-width: 1400px) {
+    .RuneText{
+        width: 20%;
+        position: absolute;
+        margin-left: 46%;
+        color: white;
+        font-size: 15px;
+    }
+
+    .RuneTitle{
+        visibility: hidden;
+        text-align: center;
+        width: 50%;
+        position: relative;
+        margin-left: 25%;
+        color: white;
+        font-size: 30px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        font-family: 'Fredoka One', cursive;
+    }
+    
+}
+@media screen and (max-width: 1200px) {
+    .RuneText{
+        width: 40%;
+        position: absolute;
+        margin-left: 46%;
+        color: white;
+        font-size: 20px;
+    }
+
+    .RuneTitle{
+        visibility: hidden;
+        text-align: center;
+        width: 50%;
+        position: relative;
+        margin-left: 25%;
+        color: white;
+        font-size: 30px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        font-family: 'Fredoka One', cursive;
+    }
+
+    .RuneContainer{
+        align-items: center;
+        justify-content: center;
+        background-color: #80D1EC;
+        background-image: url('../imgs/GoldenRunes2.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-position-y: 70%;
+        padding-top: 4%;
+        padding-bottom: 34%;
     }
     
 }
@@ -100,7 +183,7 @@
         position: absolute;
         margin-left: 46%;
         color: white;
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .RuneContainer{
@@ -138,7 +221,7 @@
         position: absolute;
         margin-left: 46%;
         color: white;
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .RuneContainer{
@@ -176,7 +259,7 @@
         position: absolute;
         margin-left: 25%;
         color: white;
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .RuneContainer{
@@ -215,7 +298,7 @@
         position: absolute;
         margin-left: 15%;
         color: white;
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .RuneContainer{
@@ -252,7 +335,7 @@
         position: absolute;
         margin-left: 15%;
         color: white;
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .RuneContainer{
@@ -288,7 +371,7 @@
         position: absolute;
         margin-left: 15%;
         color: white;
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .RuneContainer{
