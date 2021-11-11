@@ -1,15 +1,25 @@
 .TeamContainer{
+  text-align: center;
+  max-width: 1350px;
+  margin: auto;
+
+}
+
+.Team-header{
   align-items: center;
   justify-content: center;
   background-color: #FF123F ;
   background-image: url('../imgs/teambackground.png');
-  background-size: 90%;
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 50%;
   padding-top: 5%;
   padding-bottom: 10%;
+  text-align: center;
+}
 
+.teamMainContainer{
+  background-color: #FF123F ;
 }
 
 .TeamTitle{
