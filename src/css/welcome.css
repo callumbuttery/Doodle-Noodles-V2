@@ -7,7 +7,7 @@
     }
     .App {
         text-align: center;
-        max-width: 1400px;
+        max-width: 1200px;
         margin: auto;
       }
       
@@ -15,6 +15,10 @@
         font-size: 30px;
         padding-top: 20px;
         font-family: 'Fredoka One', cursive;
+      }
+
+      .wrappedImage{
+        margin-left: 35%;
       }
       
       .App-logo {
@@ -37,11 +41,13 @@
         align-items: center;
         justify-content: center;
         font-size: calc(10px + 2vmin);
-        background-image: url('../imgs/SnakeBannerTransparentShortest.png');
+        background-image: url('../imgs/Noodle.png');
         background-repeat: no-repeat;
         background-color: #FECC22 ;   
         background-position: center;
         background-position-y: 110%;
+        background-position-x: 20%;
+        background-size: 35%;
         aspect-ratio: auto;
         position: static;
         padding-top: 10%;
@@ -100,7 +106,7 @@
         align-items: center;
         justify-content: center;
         font-size: calc(10px + 2vmin);
-        background-image: url('../imgs/SnakeBannerTransparentShort.png');
+        background-image: url('../imgs/Noodle.png');
         background-repeat: no-repeat;
         background-color: #FECC22 ;   
         background-position: center;
@@ -108,6 +114,12 @@
         padding-top: 10%;
         aspect-ratio: auto;
         position: static;
+        background-position-x: 20%;
+        background-size: 35%;
+      }
+
+      .wrappedImage{
+        margin-left: 35%;
       }
 
       *{
@@ -163,7 +175,7 @@
       align-items: center;
       justify-content: center;
       font-size: calc(10px + 2vmin);
-      background-image: url('../imgs/SnakeBannerTransparentShort.png');
+      background-image: url('../imgs/Noodle.png');
       background-repeat: no-repeat;
       background-color: #FECC22 ;   
       background-position: center;
@@ -171,6 +183,12 @@
       padding-top: 10%;
       aspect-ratio: auto;
       position: static;
+      background-position-x: 10%;
+      background-size: 35%;
+    }
+
+    .wrappedImage{
+      margin-left: 35%;
     }
   
     *{
@@ -226,7 +244,7 @@
       align-items: center;
       justify-content: center;
       font-size: calc(10px + 2vmin);
-      background-image: url('../imgs/SnakeBannerTransparentShortest.png');
+      background-image: url('../imgs/Noodle.png');
       background-repeat: no-repeat;
       background-color: #FECC22 ;   
       background-position: center;
@@ -234,6 +252,12 @@
       padding-top: 10%;
       aspect-ratio: auto;
       position: static;
+      background-position-x: 10%;
+      background-size: 35%;
+    }
+
+    .wrappedImage{
+      margin-left: 35%;
     }
   
     *{
@@ -319,6 +343,10 @@
   
     .mint{
       margin-bottom: 0%;
+    }
+
+    .wrappedImage{
+      margin-left: 0%;
     }
     
   }
