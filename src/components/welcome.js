@@ -12,7 +12,7 @@ function welcome() {
                 <header className="App-header">
                     <div className="wrappedImage">
                         <img src={logo} className="App-logo" alt="logo" />
-                        <h1 style={{ color: '#FF123F', fontSize: '50px', marginTop: "0px" }}>Coming Soon!!</h1>
+                        <h1 style={{ color: '#FF123F', fontSize: '50px', marginTop: "0px" }} className="welcomeH1">Coming Soon!!</h1>
                     </div>
                 </header>
             </div>

@@ -1,354 +1,279 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
 
-  @media screen and (min-width: 1600px) {
-
-    .mint{
-      background-color: #FECC22;  
-    }
-    .App {
-        text-align: center;
-        max-width: 1200px;
-        margin: auto;
-      }
-      
-      h1{
-        font-size: 30px;
-        padding-top: 20px;
-        padding-bottom: 0px;
-        font-family: 'Fredoka One', cursive;
-      }
-
-      .wrappedImage{
-        margin-left: 45%;
-        margin-top: 0;
-      }
-      
-      .App-logo {
-        height: 15vmin;
-        pointer-events: none;
-        filter: drop-shadow(0 0 0.75rem #002741 );
-      }
-      
-      @media (prefers-reduced-motion: no-preference) {
-        .App-logo {
-          animation: App-logo-spin infinite 20s linear;
-        }
-      }
-
-      
-      .App-header {
-        min-height: 35vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        font-size: calc(10px + 2vmin);
-        background-image: url('../imgs/Noodle.png');
-        background-repeat: no-repeat;
-        background-color: #FECC22 ;   
-        background-position: center;
-        background-position-y: 110%;
-        background-position-x: 20%;
-        background-size: 35%;
-        aspect-ratio: auto;
-        position: static;
-        padding-top: 0%;
-      }
-
-      *{
-        margin: 0;
-      }
-
-      
-      .App-link {
-        color: #61dafb;
-      }
-      
-      @keyframes App-logo-spin {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      .mint{
-        margin-bottom: 0%;
-      }
+@media screen and (min-width: 2201px) and (max-width: 4000px) {
+  .mint {
+    background-color: #fecc22;
   }
-  @media screen and (max-width: 1600px) {
-    .App {
-        text-align: center;
-      }
-      
-      h1{
-        font-size: 30px;
-        padding-top: 20px;
-        font-family: 'Fredoka One', cursive;
-      }
-      
-      .App-logo {
-        height: 15vmin;
-        pointer-events: none;
-        filter: drop-shadow(0 0 0.75rem #002741 );
-      }
-      
-      @media (prefers-reduced-motion: no-preference) {
-        .App-logo {
-          animation: App-logo-spin infinite 20s linear;
-        }
-      }
-
-      
-      .App-header {
-        min-height: 45vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        font-size: calc(10px + 2vmin);
-        background-image: url('../imgs/Noodle.png');
-        background-repeat: no-repeat;
-        background-color: #FECC22 ;   
-        background-position: center;
-        background-position-y: 110%;
-        padding-top: 10%;
-        aspect-ratio: auto;
-        position: static;
-        background-position-x: 20%;
-        background-size: 35%;
-      }
-
-      .wrappedImage{
-        margin-left: 35%;
-      }
-
-      *{
-        margin: 0;
-      }
-
-      
-      .App-link {
-        color: #61dafb;
-      }
-      
-      @keyframes App-logo-spin {
-        from {
-          transform: rotate(0deg);
-        }
-        to {
-          transform: rotate(360deg);
-        }
-      }
-
-      .mint{
-        margin-bottom: 0%;
-      }
+  .App {
+    text-align: center;
+    max-width: 1200px;
+    margin: auto;
   }
 
-  @media screen and (max-width: 1600px) {
-    .App {
-      text-align: center;
-    }
-    
-    h1{
-      font-size: 30px;
-      padding-top: 20px;
-      font-family: 'Fredoka One', cursive;
-    }
-    
+  .welcomeH1 {
+    font-size: 30px;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    font-family: "Fredoka One", cursive;
+  }
+
+  .wrappedImage {
+    margin-left: 55%;
+  }
+
+  .App-logo {
+    height: 15vmin;
+    pointer-events: none;
+    filter: drop-shadow(0 0 0.75rem #002741);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
     .App-logo {
-      height: 15vmin;
-      pointer-events: none;
-      filter: drop-shadow(0 0 0.75rem #002741 );
+      animation: App-logo-spin infinite 20s linear;
     }
-    
-    @media (prefers-reduced-motion: no-preference) {
-      .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-      }
-    }
-    
-    .App-header {
-      min-height: 45vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: calc(10px + 2vmin);
-      background-image: url('../imgs/Noodle.png');
-      background-repeat: no-repeat;
-      background-color: #FECC22 ;   
-      background-position: center;
-      background-position-y: 110%;
-      padding-top: 10%;
-      aspect-ratio: auto;
-      position: static;
-      background-position-x: 10%;
-      background-size: 35%;
-    }
-
-    .wrappedImage{
-      margin-left: 35%;
-    }
-  
-    *{
-      margin: 0;
-    }
-  
-    
-    .App-link {
-      color: #61dafb;
-    }
-    
-    @keyframes App-logo-spin {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
-  
-    .mint{
-      margin-bottom: 0%;
-    }
-    
   }
-  @media screen and (max-width: 1300px) {
-    .App {
-      text-align: center;
+
+  .App-header {
+    min-height: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    background-image: url("../imgs/Noodle.png");
+    background-repeat: no-repeat;
+    background-color: #fecc22;
+    background-position: center;
+    background-position-y: 110%;
+    background-position-x: 20%;
+    background-size: 45%;
+    aspect-ratio: auto;
+    position: static;
+    padding-top: 0%;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  .App-link {
+    color: #61dafb;
+  }
+
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
     }
-    
-    h1{
-      font-size: 30px;
-      padding-top: 20px;
-      font-family: 'Fredoka One', cursive;
+    to {
+      transform: rotate(360deg);
     }
-    
+  }
+
+  .mint {
+    margin-bottom: 0%;
+  }
+}
+@media screen and (min-width: 1300px) and (max-width: 2200px) {
+  .App {
+    text-align: center;
+  }
+
+  .welcomeH1 {
+    font-size: 30px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    font-family: "Fredoka One", cursive;
+    padding-bottom: 0px;
+  }
+
+  .App-logo {
+    height: 15vmin;
+    pointer-events: none;
+    filter: drop-shadow(0 0 0.75rem #002741);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
     .App-logo {
-      height: 15vmin;
-      pointer-events: none;
-      filter: drop-shadow(0 0 0.75rem #002741 );
+      animation: App-logo-spin infinite 20s linear;
     }
-    
-    @media (prefers-reduced-motion: no-preference) {
-      .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-      }
-    }
-    
-    .App-header {
-      min-height: 45vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: calc(10px + 2vmin);
-      background-image: url('../imgs/Noodle.png');
-      background-repeat: no-repeat;
-      background-color: #FECC22 ;   
-      background-position: center;
-      background-position-y: 110%;
-      padding-top: 10%;
-      aspect-ratio: auto;
-      position: static;
-      background-position-x: 10%;
-      background-size: 35%;
-    }
-
-    .wrappedImage{
-      margin-left: 35%;
-    }
-  
-    *{
-      margin: 0;
-    }
-  
-    
-    .App-link {
-      color: #61dafb;
-    }
-    
-    @keyframes App-logo-spin {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
-  
-    .mint{
-      margin-bottom: 0%;
-    }
-    
   }
-  @media screen and (max-width: 1000px) {
-    .App {
-      text-align: center;
+
+  .App-header {
+    min-height: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    background-image: url("../imgs/Noodle.png");
+    background-repeat: no-repeat;
+    background-color: #fecc22;
+    background-position: center;
+    background-position-y: 110%;
+    padding-top: 0%;
+    aspect-ratio: auto;
+    position: static;
+    background-position-x: 30%;
+    background-size: 20%;
+  }
+
+  .wrappedImage {
+    margin-left: 25%;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  .App-link {
+    color: #61dafb;
+  }
+
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
     }
-    
-    h1{
-      font-size: 30px;
-      padding-top: 20px;
-      font-family: 'Fredoka One', cursive;
+    to {
+      transform: rotate(360deg);
     }
-    
+  }
+
+  .mint {
+    margin-bottom: 0%;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .App {
+    text-align: center;
+  }
+
+  .welcomeH1 {
+    font-size: 30px;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    font-family: "Fredoka One", cursive;
+  }
+
+  .App-logo {
+    height: 15vmin;
+    pointer-events: none;
+    filter: drop-shadow(0 0 0.75rem #002741);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
     .App-logo {
-      height: 15vmin;
-      pointer-events: none;
-      filter: drop-shadow(0 0 0.75rem #002741 );
+      animation: App-logo-spin infinite 20s linear;
     }
-    
-    @media (prefers-reduced-motion: no-preference) {
-      .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-      }
-    }
-    
-    .App-header {
-      min-height: 45vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      font-size: calc(10px + 2vmin);
-      background-image: none;
-      background-repeat: no-repeat;
-      background-color: #FECC22 ;   
-      background-position: center;
-      background-position-y: 10%;
-      padding-top: 10%;
-      aspect-ratio: auto;
-      position: static;
-    }
-  
-    *{
-      margin: 0;
-    }
-  
-    
-    .App-link {
-      color: #61dafb;
-    }
-    
-    @keyframes App-logo-spin {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
-  
-    .mint{
-      margin-bottom: 0%;
-    }
-
-    .wrappedImage{
-      margin-left: 0%;
-    }
-    
   }
+
+  .App-header {
+    min-height: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    background-image: url("../imgs/Noodle.png");
+    background-repeat: no-repeat;
+    background-color: #fecc22;
+    background-position: center;
+    background-position-y: 110%;
+    padding-top: 10%;
+    aspect-ratio: auto;
+    position: static;
+    background-position-x: 10%;
+    background-size: 35%;
+  }
+
+  .wrappedImage {
+    margin-left: 35%;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  .App-link {
+    color: #61dafb;
+  }
+
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .mint {
+    margin-bottom: 0%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .App {
+    text-align: center;
+  }
+
+  .welcomeH1 {
+    font-size: 30px;
+    padding-top: 20px;
+    padding-bottom: 0px;
+    font-family: "Fredoka One", cursive;
+  }
+
+  .App-logo {
+    height: 15vmin;
+    pointer-events: none;
+    filter: drop-shadow(0 0 0.75rem #002741);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+
+  .App-header {
+    min-height: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    background-image: none;
+    background-repeat: no-repeat;
+    background-color: #fecc22;
+    background-position: center;
+    background-position-y: 10%;
+    padding-top: 10%;
+    aspect-ratio: auto;
+    position: static;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  .App-link {
+    color: #61dafb;
+  }
+
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .mint {
+    margin-bottom: 0%;
+  }
+
+  .wrappedImage {
+    margin-left: 0%;
+  }
+}

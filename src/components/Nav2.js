@@ -6,12 +6,12 @@ import { Nav, Navbar, Button } from 'react-bootstrap'
 import discordIcon from '../imgs/Discord-Logo.png';
 import twitterIconRed from '../imgs/twitter-icon-red.png';
 
-import { BsMenuButtonWide } from "react-icons/bs";
 
 
 function Nav2() {
     return (
-        <div className="Nav2">
+        <div className="Nav2MainContainer">
+            <div className="Nav2SecondaryContainer">
             <Navbar sticky="top" expand="sm" collapseOnSelect className="nav2">
                 <Navbar.Brand>
                     <img src={logo} width="200px" height="50px" style={{ marginLeft: '50px' }} />
@@ -33,6 +33,7 @@ function Nav2() {
                 </Navbar.Collapse>
 
             </Navbar>
+            </div>
         </div>
     );
 }
