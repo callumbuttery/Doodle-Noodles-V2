@@ -54,15 +54,11 @@
     font-family: navFont;
     background-color: transparent;
   }
-}
-.NavIconTwitter {
-  height: 20px;
-  width: 30px;
-  margin-top: 1px;
-}
-.NavIconDiscord {
-  height: 15px;
-  width: 25px;
-  margin-top: 1px;
-  margin-left: 10px;
+
+  .NavIconTwitter {
+    display: none;
+  }
+  .NavIconDiscord {
+    display: none;
+  }
 }

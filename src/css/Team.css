@@ -1,15 +1,14 @@
-.TeamContainer{
+.TeamContainer {
   text-align: center;
   max-width: 1350px;
   margin: auto;
-
 }
 
-.Team-header{
+.Team-header {
   align-items: center;
   justify-content: center;
-  background-color: #FF123F ;
-  background-image: url('../imgs/teambackground.png');
+  background-color: #ff123f;
+  background-image: url("../imgs/teambackground.png");
   background-repeat: no-repeat;
   background-position: center;
   background-position-y: 50%;
@@ -18,25 +17,25 @@
   text-align: center;
 }
 
-.teamMainContainer{
-  background-color: #FF123F ;
+.teamMainContainer {
+  background-color: #ff123f;
 }
 
-.TeamTitle{
+.TeamTitle {
   text-align: center;
   position: relative;
   color: white;
   font-size: 65px;
-  font-family: 'Fredoka One', cursive;
+  font-family: "Fredoka One", cursive;
 }
 
-.TeamHR{
+.TeamHR {
   margin: auto;
   width: 20%;
   border-color: black;
 }
 
-.TeamText{
+.TeamText {
   text-align: center;
   width: 20%;
   position: relative;
@@ -47,32 +46,33 @@
   font-size: 20px;
 }
 
-@media screen and (max-width: 800px) {
-  .TeamContainer{
+@media screen and (min-width: 801px) and (max-width: 1320px) {
+  .Team-header {
     align-items: center;
     justify-content: center;
-    background-color: #FF123F ;
-    background-image: url('../imgs/teambackground3.png');
-    background-size: 90%;
+    background-color: #ff123f;
+    background-image: none;
     background-repeat: no-repeat;
     background-position: center;
-    background-position-y: 100%;
-    padding-top: 0%;
+    background-position-y: 50%;
+    padding-top: 5%;
+    padding-bottom: 10%;
+    text-align: center;
   }
 
-  .TeamTitle{
+  .TeamTitle {
     text-align: center;
     position: relative;
     color: white;
   }
-  
-  .TeamHR{
+
+  .TeamHR {
     margin: auto;
     width: 30%;
     border-color: black;
   }
-  
-  .TeamText{
+
+  .TeamText {
     text-align: center;
     width: 40%;
     position: relative;
@@ -81,36 +81,73 @@
     padding-bottom: 10%;
     color: white;
   }
-  
+}
+@media screen and (max-width: 800px) {
+  .Team-header {
+    align-items: center;
+    justify-content: center;
+    background-color: #ff123f;
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: 50%;
+    padding-top: 5%;
+    padding-bottom: 10%;
+    text-align: center;
+  }
+
+  .TeamTitle {
+    text-align: center;
+    position: relative;
+    color: white;
+  }
+
+  .TeamHR {
+    margin: auto;
+    width: 30%;
+    border-color: black;
+  }
+
+  .TeamText {
+    text-align: center;
+    width: 40%;
+    position: relative;
+    margin-left: 30%;
+    padding-top: 20px;
+    padding-bottom: 10%;
+    color: white;
+  }
 }
 
 @media screen and (max-width: 600px) {
-  .TeamContainer{
+  .Team-header {
     align-items: center;
     justify-content: center;
-    background-color: #FF123F ;
-    background-image: url('../imgs/teambackground3.png');
-    background-size: 90%;
+    background-color: #ff123f;
+    background-image: none;
     background-repeat: no-repeat;
     background-position: center;
     background-position-y: 50%;
-    padding-top: 0%;
+    padding-top: 5%;
+    padding-bottom: 10%;
+    text-align: center;
   }
 }
 @media screen and (max-width: 450px) {
-  .TeamContainer{
+  .Team-header {
     align-items: center;
     justify-content: center;
-    background-color: #FF123F ;
+    background-color: #ff123f;
     background-image: none;
-    background-size: 90%;
     background-repeat: no-repeat;
     background-position: center;
     background-position-y: 50%;
-    padding-top: 0%;
+    padding-top: 5%;
+    padding-bottom: 10%;
+    text-align: center;
   }
 
-  .TeamText{
+  .TeamText {
     text-align: center;
     width: 90%;
     position: relative;
