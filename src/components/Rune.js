@@ -10,9 +10,9 @@ function Rune() {
                         <p className="RuneText">
                             Our Golden Rune system allows
                             5 lucky minters to have a
-                            customer Doodle Noodle created
+                            custom Doodle Noodle created
                             and minted for them to their
-                            own specifications yb our artists
+                            own specifications by our artist
                             Grin!
                             <br></br>
                             <br></br>

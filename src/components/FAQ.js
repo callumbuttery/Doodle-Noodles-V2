@@ -9,8 +9,8 @@ function FAQ() {
                     <img src={FAQimg} className='FQALogo' alt="FQA"></img>
                     <div className="FQAcontent">
                         <h2 className='listItem'>1. When will the Noodles launch?</h2>
-                        <p className='FQAParagraphFont'>We will be having a presale for our whitelisted members
-                            of the first 3000 Noodles. Then a few days later the public sale will go live.
+                        <p className='FQAParagraphFont'>We will be having a presale for our whitelisted members - there will only be 1000 whitelisted!
+                         Then a few days later the public sale will go live.
                             <b>The date of the presale will be announced on our Discord & Twitter!</b>
                         </p>
                         <h2 className='listItem'>2. How can I join the whitelist for Pre-Sale?</h2>
