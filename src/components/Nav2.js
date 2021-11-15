@@ -25,7 +25,7 @@ function Nav2() {
                         <Link to="mint" className='NavItem' style={{textDecoration: 'none'}}>Mint</Link>
                         <Link to="TeamContainer" className='NavItem' style={{textDecoration: 'none'}}>Team</Link>
                         <Link to="FQAMainContainer" className='NavItem' style={{textDecoration: 'none'}}>About</Link>
-                        <Link to="Team" className='NavItem' style={{textDecoration: 'none'}}>Roadmap</Link>
+                        <a href="https://medium.com/@doodlenoodles/doodle-noodles-utility-roadmap-7a9feb9953f4" className='NavItem' target="_blank" style={{textDecoration: 'none'}}>Roadmap</a>
                         <a href="https://discord.com/invite/rReed6g5" target='_blank'
                         ><img src={discordIcon} className="NavIconDiscord" /></a>
 
