@@ -11,6 +11,7 @@
   background-position-y: 100%;
   padding-top: 4%;
   padding-bottom: 30%;
+  min-height: 20%;
 }
 
 .RuneTextContainers {
@@ -49,7 +50,7 @@
   font-family: "Fredoka One", cursive;
 }
 
-@media screen and (max-width: 1900px) {
+@media screen and (max-width: 1920px) {
   .RuneText {
     position: absolute;
     color: white;
