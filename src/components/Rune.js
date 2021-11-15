@@ -20,11 +20,6 @@ function Rune() {
                             an associated rune, which will
                             be used in future for
                             competitions and giveaways.
-                            But if you mint and find a
-                            Golden Rune on your NFT - you
-                            should start thinking about
-                            what your ideal Doodle Noodle
-                            would look like!
                         </p>
                     </div>
                 </div>
