@@ -12,9 +12,7 @@ function FAQ() {
             <p className="FQAParagraphFont">
               Our presale will happen for our whitelist members on December
               27th! Our public sale will go live 48 hours later on December
-              29th!
-              <b>
-                 The date of the presale will be announced on our Discord &
+              29th! <b> The date of the presale will be announced on our Discord &
                 Twitter!
               </b>
             </p>
