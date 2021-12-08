@@ -16,7 +16,7 @@ function Nav2() {
             <div className="Nav2SecondaryContainer">
             <Navbar sticky="top" expand="sm" collapseOnSelect className="nav2">
                 <Navbar.Brand>
-                    <img src={logo} width="200px" height="50px" style={{ marginLeft: '50px' }} />
+                    <img src={logo} width="200px" height="50px" style={{ marginLeft: '50px' }} alt="Doodle Noodles"/>
                 </Navbar.Brand>
 
                 <Navbar.Toggle style={{ backgroundColor: "white" }}></Navbar.Toggle>

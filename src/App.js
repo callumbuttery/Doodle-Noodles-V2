@@ -6,6 +6,7 @@ import About from './components/About.js'
 import FAQ from './components/FAQ.js'
 import Rune from './components/Rune.js'
 import RarityGuide from './components/RarityGuide.js'
+import Ramen from './components/Ramen.js'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
       <About></About>
       <Team id='Team'></Team>
       <FAQ id='about'></FAQ>
+      <Ramen></Ramen>
       <Rune></Rune>
       <RarityGuide></RarityGuide>
     </div>

@@ -1,5 +1,4 @@
 import logo from '../imgs/Logo3.png'
-import background from '../imgs/SnakeBannerTransparent.png'
 import '../css/welcome.css';
 import Timer from '../components/Timer';
 
