@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+
+.Tree-header {
+  align-items: center;
+  justify-content: center;
+  background-color: #80d1ec;
+  background-image: url("../imgs/OneTreePlanted.png");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 0%;
+  padding-bottom: 30%;
+  min-height: 20%;
+}
+
+.TreeContainer {
+  background-color: #80d1ec;
+}
+
+.TreenSecondaryContainer {
+  text-align: center;
+  max-width: 1200px;
+  margin: auto;
+  height: 800px;
+}
