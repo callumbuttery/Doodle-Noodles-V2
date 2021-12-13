@@ -11,7 +11,7 @@
   padding-top: 4%;
   padding-bottom: 30%;
   min-height: 20%;
-  margin-left: 10%;
+  margin-left: 5%;
   padding-bottom: 30%;
   background-position-y: -10%;
 }
@@ -19,7 +19,7 @@
 .OmenTextContainers {
   position: sticky;
   width: 21%;
-  left: 38%;
+  left: 32%;
 }
 
 .OmenContainer {
@@ -90,6 +90,7 @@
   .OmenTextContainers {
     position: sticky;
     width: 25%;
+    left: 10%;
   }
 
   .OmenTitle {
@@ -138,7 +139,7 @@
   .OmenTextContainers {
     position: sticky;
     width: 22%;
-    left: 27%;
+    left: 20%;
   }
 
   .OmenTitle {
@@ -164,7 +165,7 @@
   .OmenTextContainers {
     position: sticky;
     width: 21%;
-    left: 30%;
+    left: 20%;
   }
 
   .OmenTitle {
@@ -204,7 +205,7 @@
   .OmenTextContainers {
     position: sticky;
     width: 21%;
-    left: 26%;
+    left: 15%;
   }
 
   .OmenTitle {
