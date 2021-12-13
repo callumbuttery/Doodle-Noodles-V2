@@ -7,6 +7,7 @@ import Rune from './components/Rune.js'
 import RarityGuide from './components/RarityGuide.js'
 import Ramen from './components/Ramen.js'
 import OneTree from './components/OneTree.js'
+import Omen from './components/Omen.js'
 
 function App() {
 
@@ -17,8 +18,9 @@ function App() {
       <About></About>
       <Team id='Team'></Team>
       <FAQ id='about'></FAQ>
-      <Ramen></Ramen>
       <OneTree></OneTree>
+      <Ramen></Ramen>
+      <Omen></Omen>
       <Rune></Rune>
       <RarityGuide></RarityGuide>
     </div>

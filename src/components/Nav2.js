@@ -1,7 +1,7 @@
 import logo from '../imgs/Logo.png';
 import '../css/Nav2.css';
 import 'bootstrap/dist/css/bootstrap.css'
-import * as Scroll from 'react-scroll';
+
 import { Link, Button, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 import { Nav, Navbar } from 'react-bootstrap'
