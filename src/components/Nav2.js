@@ -26,7 +26,7 @@ function Nav2() {
                         <Link to="TeamContainer" className='NavItem' rel="noreferrer" style={{textDecoration: 'none'}}>Team</Link>
                         <Link to="FQAMainContainer" className='NavItem' rel="noreferrer" style={{textDecoration: 'none'}}>About</Link>
                         <a href="https://medium.com/@doodlenoodles/doodle-noodles-utility-roadmap-7a9feb9953f4" className='NavItem' rel="noreferrer" target="_blank" style={{textDecoration: 'none'}}>Roadmap</a>
-                        <a href="https://discord.com/invite/rReed6g5" rel="noreferrer" target='_blank'
+                        <a href="https://discord.com/invite/2PQFYWNqem" rel="noreferrer" target='_blank'
                         ><img src={discordIcon} className="NavIconDiscord" alt="Discord Icon"/></a>
 
                         <a href="https://twitter.com/DoodleNoodleNFT"  rel="noreferrer" target='_blank'
