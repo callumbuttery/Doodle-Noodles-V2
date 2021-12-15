@@ -14,7 +14,7 @@ function about() {
           <h1 className="Title">What are Doodle Noodles?</h1>
           <hr className="hr"></hr>
           <p className="paragraphFont">
-            Doodle Noodles are 6666 snake NFTs looking to make Hisstory on the
+            Doodle Noodles are 5555 snake NFTs looking to make Hisstory on the
             Ethereum blockchain. They were created by our founder Grin and
             generated from billions of possible combinations in order to produce
             a varied collection of amazing art.
