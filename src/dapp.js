@@ -70,9 +70,10 @@ function Dapp() {
           </s.Container>
         ) : (
           <s.Container flex={1} ai={"center"} style={{ padding: 24 }}>
+            <img src={logo} className="App-logo"></img>
             <p>Get a Doodle Noodle</p>
             <input
-              disabled={nft}  
+              disabled={nft}
               type={"number"}
               defaultValue={1}
               className="inputCount"

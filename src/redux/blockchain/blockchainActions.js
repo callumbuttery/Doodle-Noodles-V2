@@ -43,12 +43,11 @@ export const connect = () => {
         const networkId = await window.ethereum.request({
           method: "net_version",
         });
-        const NetworkData = await SmartContract.networks[networkId];
-        console.log(NetworkData);
-        if (NetworkData) {
+        //4 is rinkerby
+        if (networkId == 4) {
           const SmartContractObj = new web3.eth.Contract(
             SmartContract.abi,
-            NetworkData.address
+            //NetworkData.address
           );
           dispatch(
             connectSuccess({

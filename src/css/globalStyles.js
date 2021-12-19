@@ -10,7 +10,7 @@ export const Screen = styled.div`
   min-height: 10vh;
   display: flex;
   flex-direction: column;
-  padding-top: 20%;
+  padding-top: 7%;
 `;
 
 // Used for providing space between components
