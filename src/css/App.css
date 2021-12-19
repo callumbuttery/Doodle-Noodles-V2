@@ -15,13 +15,13 @@ body {
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 10vmin;
   pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 10s linear;
   }
 }
 
@@ -36,6 +36,30 @@ body {
 
 .App-link {
   color: #61dafb;
+}
+
+.inputCount{
+  width: 100px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.dappContainer{
+  background-color: #FF123F;
+  height: 400px;
+  width: 400px;
+  border-radius: 25px;
+  filter: drop-shadow(0 0 0.55rem #002741);
+}
+
+.mintButton{
+  color: white;
+  background-color: #002741;
+  outline: white;
+  border: white;
+  border-radius: 15px;
+  width: 100px;
 }
 
 @keyframes App-logo-spin {

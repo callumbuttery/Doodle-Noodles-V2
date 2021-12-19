@@ -10,7 +10,6 @@ import OneTree from './components/OneTree.js'
 import Omen from './components/Omen.js'
 
 function App() {
-
   return (
     <div>
       <Nav2></Nav2>
@@ -24,6 +23,7 @@ function App() {
       <Rune></Rune>
       <RarityGuide></RarityGuide>
     </div>
+
   );
 }
 
