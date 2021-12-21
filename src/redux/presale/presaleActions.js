@@ -24,23 +24,25 @@ const verifyPresaleRequest = () => {
     return async (dispatch) => {
       dispatch(verifyPresaleRequest());
       try {
-        console.log("hit presaleactions.jS");
-        const response = await axios.post(`/.netlify/functions/validate`, account);
-        console.log(response);
-        const sig = await response.data.message;
-        console.log(sig);
-        const signature = sig.signature;
-        const verified = (signature !== "");
-        if(verified) {
+
+        const usersMetamaskAddress = '0xfd20d452da9214c56641000d689da233b521cd1c'
+        const response = await axios.post(`/.netlify/functions/validate`, usersMetamaskAddress);
+
+        const verified = response.data.verified;
+        const confirmedHash = response.data.confirmedHash;
+
+        console.log('users whitelisted hash: ', confirmedHash);
+
+        if(confirmedHash != 'Not Whitelisted' && verified == true) {
           console.log("Presale verified");
         }
         else {
-          console.log("Not on whitelist");
+          console.log("Address not on whitelist");
         }
   
         dispatch(
           presaleVerified({
-            signature,
+            confirmedHash,
             verified
           }),
         );

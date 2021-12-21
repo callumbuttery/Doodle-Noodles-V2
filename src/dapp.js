@@ -32,8 +32,10 @@ function Dapp() {
     console.log("Cost: ", totalCostInWei);
     console.log("Gas limit: ", gasLimit);
 
-    const mintActive = await blockchain.smartContract.mintActive();
-    if (mintActive) {
+    //const mintActive = await blockchain.smartContract.mintActive();
+    const mintActive = false;
+    if (mintActive != false) {
+      console.log('hit mint active');
       try {
         gettingNFT(true);
 
@@ -73,6 +75,7 @@ function Dapp() {
       //     console.log(recipt);
       //   });
     } else {
+      console.log('hit smart contract mint');
       try {
         gettingNFT(true);
         console.log("signature:", presale.signature);
