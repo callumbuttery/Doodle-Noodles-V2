@@ -1,5 +1,5 @@
-// log
 import store from "../store";
+import { verifyPresale } from '../presale/presaleActions.js';
 
 const fetchDataRequest = () => {
   return {
@@ -25,16 +25,18 @@ export const fetchData = (account) => {
   return async (dispatch) => {
     dispatch(fetchDataRequest());
     try {
-      let name = await store
-        .getState()
-        .blockchain.smartContract.methods.name()
-        .call();
+      // let name = await store
+      //   .getState()
+      //   .blockchain.smartContract.methods.name()
+      //   .call();
 
-      dispatch(
-        fetchDataSuccess({
-          name,
-        })
-      );
+      // dispatch(
+      //   fetchDataSuccess({
+      //     name,
+      //   })
+      // );
+
+      dispatch(verifyPresale(account));
     } catch (err) {
       console.log(err);
       dispatch(fetchDataFailed("Could not load data from contract."));

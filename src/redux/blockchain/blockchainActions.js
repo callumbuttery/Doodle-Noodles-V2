@@ -37,13 +37,13 @@ export const connect = () => {
 
 
     dispatch(connectRequest());
-    const abiGetter = await fetch(SmartContract, {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    });
-    const abi = abiGetter(SmartContract);
+    // const abiGetter = await fetch(SmartContract, {
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     Accept: "application/json",
+    //   },
+    // });
+    // const abi = abiGetter(SmartContract);
     
 
 
@@ -63,11 +63,11 @@ export const connect = () => {
         if (networkId == process.env.REACT_APP_NETWORK_ID) {
           console.log(process.env.REACT_APP_CONTRACT_ADDRESS);
           //add abi
-          const contract = new ethers.Contract(
-            process.env.REACT_APP_CONTRACT_ADDRESS,
-            abi,
-            signer
-          );
+          // const contract = new ethers.Contract(
+          //   process.env.REACT_APP_CONTRACT_ADDRESS,
+          //   process.env.ABI,
+          //   signer
+          // );
           console.log("test");
           const SmartContractObj = new web3.eth.Contract(
             //originals from tutorial
@@ -77,7 +77,7 @@ export const connect = () => {
             dispatch(
               connectSuccess({
                 account: accounts[0],
-                smartContract: contract,
+                //smartContract: contract,
               })
             )
           );
