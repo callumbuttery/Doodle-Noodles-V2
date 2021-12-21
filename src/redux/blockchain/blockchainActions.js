@@ -1,9 +1,10 @@
 // constants
 import Web3 from "web3";
 import SmartContract from "../../contracts/SmartContract.json";
-// log
+import { ethers } from "ethers";
 import { fetchData } from "../data/dataActions";
 
+const { ethereum } = window;
 const connectRequest = () => {
   return {
     type: "CONNECTION_REQUEST",
@@ -33,9 +34,24 @@ const updateAccountRequest = (payload) => {
 
 export const connect = () => {
   return async (dispatch) => {
+
+
     dispatch(connectRequest());
+    const abiGetter = await fetch(SmartContract, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+    const abi = abiGetter(SmartContract);
+    
+
+
+
     if (window.ethereum) {
       let web3 = new Web3(window.ethereum);
+      const provider = new ethers.providers.Web3Provider(ethereum);
+      const signer = provider.getSigner();
       try {
         const accounts = await window.ethereum.request({
           method: "eth_requestAccounts",
@@ -43,18 +59,27 @@ export const connect = () => {
         const networkId = await window.ethereum.request({
           method: "net_version",
         });
-        //4 is rinkerby
-        if (networkId == 4) {
-          const SmartContractObj = new web3.eth.Contract(
-            SmartContract.abi,
-            //NetworkData.address
+        console.log(process.env.REACT_APP_NETWORK_ID);
+        if (networkId == process.env.REACT_APP_NETWORK_ID) {
+          console.log(process.env.REACT_APP_CONTRACT_ADDRESS);
+          //add abi
+          const contract = new ethers.Contract(
+            process.env.REACT_APP_CONTRACT_ADDRESS,
+            abi,
+            signer
           );
-          dispatch(
-            connectSuccess({
-              account: accounts[0],
-              smartContract: SmartContractObj,
-              web3: web3,
-            })
+          console.log("test");
+          const SmartContractObj = new web3.eth.Contract(
+            //originals from tutorial
+            //SmartContract.abi,
+            //NetworkData.address
+            //);
+            dispatch(
+              connectSuccess({
+                account: accounts[0],
+                smartContract: contract,
+              })
+            )
           );
           // Add listeners start
           window.ethereum.on("accountsChanged", (accounts) => {
@@ -68,6 +93,7 @@ export const connect = () => {
           dispatch(connectFailed("Change network to ETH."));
         }
       } catch (err) {
+        console.log(err);
         dispatch(connectFailed("Something went wrong."));
       }
     } else {

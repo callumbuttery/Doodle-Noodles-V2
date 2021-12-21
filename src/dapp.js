@@ -7,6 +7,7 @@ import * as s from "./css/globalStyles";
 import styled from "styled-components";
 import { create } from "ipfs-http-client";
 import logo from "./imgs/Logo2.png";
+import { ethers } from "ethers";
 
 export const StyledButton = styled.button`
   padding: 8px;
@@ -19,25 +20,88 @@ function Dapp() {
   const blockchain = useSelector((state) => state.blockchain);
   const data = useSelector((state) => state.data);
   const [nft, gettingNFT] = useState(false);
-  const [message, settingMessage] = useState("");
+  const [message, settingMessage] = useState("Buy a Doodle Noodle");
   const [amount, setAmount] = useState(1);
+  const presale = useSelector((state) => state.presale);
 
-  const getDoodle = (amount) => {
-    gettingNFT(true);
-    blockchain.smartContract.methods
-      .mint(blockchain.account, amount)
-      .send({
-        from: blockchain.account,
-        value: blockchain.web3.utils.toWei((0.06 * amount).toString(), "ether"),
-      })
-      .once("error", (err) => {
-        settingMessage("The following error occurred: ", err);
+  const getDoodle = async (amount) => {
+    let cost = process.env.REACT_APP_MINT_COST;
+    let gasLimit = process.env.REACT_APP_GAS_LIMIT;
+    let totalCostInWei = String(cost * amount);
+
+    console.log("Cost: ", totalCostInWei);
+    console.log("Gas limit: ", gasLimit);
+
+    const mintActive = await blockchain.smartContract.mintActive();
+    if (mintActive) {
+      try {
+        gettingNFT(true);
+
+        const mint = await blockchain.smartContract.mint(amount, {
+          gasLimit: String(gasLimit),
+          from: blockchain.account,
+          value: totalCostInWei,
+        });
+
+        const finishedMinting = mint.wait();
+        settingMessage(
+          "Successfully minted a Doodle Noodle: ",
+          finishedMinting
+        );
         gettingNFT(false);
-      })
-      .then((recipt) => {
-        settingMessage("Successfully minted a Doodle Noodle!");
+        dispatch(fetchData(blockchain.account));
+      } catch (e) {
+        console.log("Something went wrong: ", e);
+        settingMessage("An error occured, try minting again!");
         gettingNFT(false);
-      });
+      }
+
+      // blockchain.smartContract.methods
+      //   .mint(blockchain.account, amount)
+      //   .send({
+      //     gasLimit: String(gasLimit),
+      //     from: blockchain.account,
+      //     value: totalCostInWei,
+      //   })
+      //   .once("error", (err) => {
+      //     settingMessage("The following error occurred: ", err);
+      //     gettingNFT(false);
+      //   })
+      //   .then((recipt) => {
+      //     settingMessage("Successfully minted a Doodle Noodle!");
+      //     gettingNFT(false);
+      //     console.log(recipt);
+      //   });
+    } else {
+      try {
+        gettingNFT(true);
+        console.log("signature:", presale.signature);
+        let sig = ethers.utils.splitSignature(presale.signature);
+        const mint = await blockchain.smartContract.presaleMint(
+          amount,
+          sig.r,
+          sig.s,
+          sig.v,
+          {
+            gasLimit: String(gasLimit),
+            from: blockchain.account,
+            value: totalCostInWei,
+          }
+        );
+        const finishedMinting = mint.wait();
+        console.log(finishedMinting);
+        settingMessage(
+          "Successfully minted a Doodle Noodle: ",
+          finishedMinting
+        );
+        gettingNFT(false);
+        dispatch(fetchData(blockchain.account));
+      } catch (e) {
+        console.log("Something went wrong: ", e);
+        settingMessage("An error occured, try minting again!");
+        gettingNFT(false);
+      }
+    }
   };
 
   useEffect(() => {
@@ -53,6 +117,7 @@ function Dapp() {
           <s.Container flex={1} ai={"center"} jc={"center"}>
             <img src={logo} className="App-logo"></img>
             <s.TextTitle>Connect to the Blockchain</s.TextTitle>
+            <s.TextDescription>0.06 Eth Per Doodle</s.TextDescription>
             <s.SpacerSmall />
             <button
               onClick={(e) => {
@@ -84,6 +149,14 @@ function Dapp() {
                 event.preventDefault();
               }}
             ></input>
+            <s.TextDescription
+              style={{
+                textAlign: "center",
+                color: "#16194F",
+              }}
+            >
+              {message}
+            </s.TextDescription>
             <button
               disabled={nft}
               onClick={(e) => {
