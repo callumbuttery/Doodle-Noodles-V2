@@ -25,8 +25,7 @@ const verifyPresaleRequest = () => {
       dispatch(verifyPresaleRequest());
       try {
 
-        const usersMetamaskAddress = '0xfd20d452da9214c56641000d689da233b521cd1c'
-        const response = await axios.post(`/.netlify/functions/validate`, usersMetamaskAddress);
+        const response = await axios.post(`/.netlify/functions/validate`, account);
 
         const verified = response.data.verified;
         const confirmedHash = response.data.confirmedHash;

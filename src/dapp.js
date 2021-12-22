@@ -8,6 +8,9 @@ import styled from "styled-components";
 import { create } from "ipfs-http-client";
 import logo from "./imgs/Logo2.png";
 import { ethers } from "ethers";
+import axios from "axios";
+import Web3 from "web3";
+import { abi } from "./redux/blockchain/abi";
 
 export const StyledButton = styled.button`
   padding: 8px;
@@ -35,7 +38,7 @@ function Dapp() {
     //const mintActive = await blockchain.smartContract.mintActive();
     const mintActive = false;
     if (mintActive != false) {
-      console.log('hit mint active');
+      console.log("hit mint active");
       try {
         gettingNFT(true);
 
@@ -57,40 +60,57 @@ function Dapp() {
         settingMessage("An error occured, try minting again!");
         gettingNFT(false);
       }
-
-      // blockchain.smartContract.methods
-      //   .mint(blockchain.account, amount)
-      //   .send({
-      //     gasLimit: String(gasLimit),
-      //     from: blockchain.account,
-      //     value: totalCostInWei,
-      //   })
-      //   .once("error", (err) => {
-      //     settingMessage("The following error occurred: ", err);
-      //     gettingNFT(false);
-      //   })
-      //   .then((recipt) => {
-      //     settingMessage("Successfully minted a Doodle Noodle!");
-      //     gettingNFT(false);
-      //     console.log(recipt);
-      //   });
     } else {
-      console.log('hit smart contract mint');
+      console.log("hit smart contract mint");
       try {
         gettingNFT(true);
-        console.log("signature:", presale.signature);
-        let sig = ethers.utils.splitSignature(presale.signature);
-        const mint = await blockchain.smartContract.presaleMint(
+
+        const response = await axios.post(
+          `/.netlify/functions/validate`,
+          blockchain.account
+        );
+
+        const verified = response.data.verified;
+        const confirmedHash = response.data.confirmedHash;
+
+
+        var contractAddress = "82a5C93f98Cfe8916109adfF2f38F60e1a0a3C16";
+        var userAddress = "fd20d452da9214c56641000d689da233b521cd1c";
+
+        let web3 = new Web3(window.ethereum);
+        const { ethereum } = window;
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        let sign = '';
+        
+        // Message to sign : contract address + address to give access
+        var message = web3.utils.sha3(
+          contractAddress + userAddress,
+          { encoding: "hex" }
+        );
+
+        // Signing message (with "\x19Ethereum Signed Message:\n32" as prefix by default)
+        await web3.eth.sign(
+          message,
+          blockchain.account,
+          (err, res) => (sign = res)
+        );
+
+        let sig = ethers.utils.splitSignature(sign);
+        console.log('Sig:', sig)
+
+
+        //let sig = ethers.utils.splitSignature(bytesDataHash);
+        const mint = await blockchain.contract.presaleMint(
           amount,
           sig.r,
           sig.s,
           sig.v,
           {
-            gasLimit: String(gasLimit),
-            from: blockchain.account,
-            value: totalCostInWei,
-          }
-        );
+          gasLimit: String(gasLimit),
+          from: blockchain.account,
+          value: totalCostInWei,
+        });
         const finishedMinting = mint.wait();
         console.log(finishedMinting);
         settingMessage(

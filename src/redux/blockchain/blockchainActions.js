@@ -3,6 +3,7 @@ import Web3 from "web3";
 import SmartContract from "../../contracts/SmartContract.json";
 import { ethers } from "ethers";
 import { fetchData } from "../data/dataActions";
+import { abi } from "./abi";
 
 const { ethereum } = window;
 const connectRequest = () => {
@@ -34,20 +35,10 @@ const updateAccountRequest = (payload) => {
 
 export const connect = () => {
   return async (dispatch) => {
-
+    console.log('abi: ', abi);
 
     dispatch(connectRequest());
-    // const abiGetter = await fetch(SmartContract, {
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     Accept: "application/json",
-    //   },
-    // });
-    // const abi = abiGetter(SmartContract);
-    
-
-
-
+  
     if (window.ethereum) {
       let web3 = new Web3(window.ethereum);
       const provider = new ethers.providers.Web3Provider(ethereum);
@@ -63,24 +54,31 @@ export const connect = () => {
         if (networkId == process.env.REACT_APP_NETWORK_ID) {
           console.log(process.env.REACT_APP_CONTRACT_ADDRESS);
           //add abi
-          // const contract = new ethers.Contract(
-          //   process.env.REACT_APP_CONTRACT_ADDRESS,
-          //   process.env.ABI,
-          //   signer
-          // );
-          console.log("test");
-          const SmartContractObj = new web3.eth.Contract(
-            //originals from tutorial
-            //SmartContract.abi,
-            //NetworkData.address
-            //);
-            dispatch(
-              connectSuccess({
-                account: accounts[0],
-                //smartContract: contract,
-              })
-            )
+          const contract = new ethers.Contract(
+            process.env.REACT_APP_CONTRACT_ADDRESS,
+            abi,
+            signer
           );
+
+          dispatch(
+            connectSuccess({
+              account: accounts[0],
+              smartContract: contract,
+            })
+          )
+          console.log("test");
+          // const SmartContractObj = new web3.eth.Contract(
+          //   //originals from tutorial
+          //   //SmartContract.abi,
+          //   //NetworkData.address
+          //   //);
+          //   dispatch(
+          //     connectSuccess({
+          //       account: accounts[0],
+          //       smartContract: contract,
+          //     })
+          //   )
+          //);
           // Add listeners start
           window.ethereum.on("accountsChanged", (accounts) => {
             dispatch(updateAccount(accounts[0]));

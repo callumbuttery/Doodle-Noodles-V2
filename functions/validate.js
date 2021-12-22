@@ -4,7 +4,7 @@ exports.handler = async function(event, context) {
     let verified = false;
     let confirmedHash = 'Not Whitelisted'
     const associatedAccounts = 
-    [{metaMaskHash:'0xfd20d452da9214c56641000d689da233b521cd1c', whitelistHash:'abcdefgh'},
+    [{metaMaskHash:'0xfd20d452da9214c56641000d689da233b521cd1c', whitelistHash:'0xfd20d452da9214c56641000d689da233b521cd1c'},
     {metaMaskHash:'0xfd20d452da9214c56641000d689da233a412bc2d', whitelistHash:'bob'}]
 
     // if (associatedAccounts.metaMaskHash.includes(data)){
