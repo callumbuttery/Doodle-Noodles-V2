@@ -97,6 +97,8 @@ function Dapp() {
         );
 
         let sig = ethers.utils.splitSignature(sign);
+        console.log('userAddress: ', userAddress);
+        console.log('Hashed Address: ', sign)
         console.log('Sig:', sig)
 
 

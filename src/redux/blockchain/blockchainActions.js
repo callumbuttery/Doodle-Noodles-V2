@@ -35,7 +35,7 @@ const updateAccountRequest = (payload) => {
 
 export const connect = () => {
   return async (dispatch) => {
-    console.log('abi: ', abi);
+    //console.log('abi: ', abi);
 
     dispatch(connectRequest());
   
@@ -50,9 +50,9 @@ export const connect = () => {
         const networkId = await window.ethereum.request({
           method: "net_version",
         });
-        console.log(process.env.REACT_APP_NETWORK_ID);
+        //console.log(process.env.REACT_APP_NETWORK_ID);
         if (networkId == process.env.REACT_APP_NETWORK_ID) {
-          console.log(process.env.REACT_APP_CONTRACT_ADDRESS);
+          //console.log(process.env.REACT_APP_CONTRACT_ADDRESS);
           //add abi
           const contract = new ethers.Contract(
             process.env.REACT_APP_CONTRACT_ADDRESS,
@@ -66,7 +66,7 @@ export const connect = () => {
               smartContract: contract,
             })
           )
-          console.log("test");
+          //console.log("test");
           // const SmartContractObj = new web3.eth.Contract(
           //   //originals from tutorial
           //   //SmartContract.abi,

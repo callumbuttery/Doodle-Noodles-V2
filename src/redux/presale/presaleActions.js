@@ -30,7 +30,7 @@ const verifyPresaleRequest = () => {
         const verified = response.data.verified;
         const confirmedHash = response.data.confirmedHash;
 
-        console.log('users whitelisted hash: ', confirmedHash);
+        //console.log('users whitelisted hash: ', confirmedHash);
 
         if(confirmedHash != 'Not Whitelisted' && verified == true) {
           console.log("Presale verified");
