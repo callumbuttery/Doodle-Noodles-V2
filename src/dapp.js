@@ -42,7 +42,7 @@ function Dapp() {
       try {
         gettingNFT(true);
 
-        const mint = await blockchain.smartContract.mint(amount, {
+        const mint = await blockchain.smartContract.methods.mint(amount, {
           gasLimit: String(gasLimit),
           from: blockchain.account,
           value: totalCostInWei,
@@ -101,25 +101,19 @@ function Dapp() {
         console.log('Hashed Address: ', sign)
         console.log('Sig:', sig)
 
+        console.log(blockchain.smartContract.methods);
 
-        //let sig = ethers.utils.splitSignature(bytesDataHash);
-        const mint = await blockchain.contract.presaleMint(
-          amount,
-          sig.r,
-          sig.s,
-          sig.v,
-          {
-          gasLimit: String(gasLimit),
+
+        blockchain.smartContract.methods.presale(amount, sig).send({
           from: blockchain.account,
           value: totalCostInWei,
-        });
-        const finishedMinting = mint.wait();
-        console.log(finishedMinting);
-        settingMessage(
-          "Successfully minted a Doodle Noodle: ",
-          finishedMinting
-        );
-        gettingNFT(false);
+        }).then((recipt) => {
+          console.log(recipt);
+          settingMessage(
+            "Successfully minted a Doodle Noodle: ",
+          );
+          gettingNFT(false);
+        })
         dispatch(fetchData(blockchain.account));
       } catch (e) {
         console.log("Something went wrong: ", e);
