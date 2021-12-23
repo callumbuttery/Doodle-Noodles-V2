@@ -38,6 +38,7 @@ function Dapp() {
     let gasLimit = process.env.REACT_APP_GAS_LIMIT;
     let totalCostInWei = String(cost * amount);
     var costing = web3.utils.toWei((amount * 0.06).toString(), 'ether')
+    let gas = web3.utils.toWei((amount * 0.06).toString(), 'ether')
 
 
 
@@ -100,7 +101,7 @@ function Dapp() {
           (err, res) => (sign = res)
         );
 
-        let sig = ethers.utils.splitSignature(sign);
+        let sig = ethers.utils.splitSignature('0x1d34c1369e8fd1b4f32091949ea5826e96a66a3687df04808c71fbf52c574283271cd2c2fc02b9bf6a1f41b6427e6e741be221f4260252c89cf272e0f6851f591b');
         console.log('userAddress: ', userAddress);
         console.log('Hashed Address: ', sign)
         console.log('Sig:', sig)
@@ -108,7 +109,7 @@ function Dapp() {
   
         blockchain.smartContract.methods.presaleMint(amount, sig.r, sig.s, sig.v).send({
           from: blockchain.account,
-          value: costing,
+          value: gas,
         }).then((recipt) => {
           console.log(recipt);
           settingMessage(
