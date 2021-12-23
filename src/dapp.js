@@ -28,9 +28,18 @@ function Dapp() {
   const presale = useSelector((state) => state.presale);
 
   const getDoodle = async (amount) => {
+
+    let web3 = new Web3(window.ethereum);
+    const { ethereum } = window;
+    const provider = new ethers.providers.Web3Provider(ethereum);
+    const signer = provider.getSigner();
+
     let cost = process.env.REACT_APP_MINT_COST;
     let gasLimit = process.env.REACT_APP_GAS_LIMIT;
     let totalCostInWei = String(cost * amount);
+    var costing = web3.utils.toWei((amount * 0.06).toString(), 'ether')
+
+
 
     console.log("Cost: ", totalCostInWei);
     console.log("Gas limit: ", gasLimit);
@@ -76,16 +85,11 @@ function Dapp() {
 
         var contractAddress = "82a5C93f98Cfe8916109adfF2f38F60e1a0a3C16";
         var userAddress = "fd20d452da9214c56641000d689da233b521cd1c";
-
-        let web3 = new Web3(window.ethereum);
-        const { ethereum } = window;
-        const provider = new ethers.providers.Web3Provider(ethereum);
-        const signer = provider.getSigner();
         let sign = '';
         
-        // Message to sign : contract address + address to give access
-        var message = web3.utils.sha3(
-          contractAddress + userAddress,
+        //Message to sign : contract address + address to give access
+        var message = web3.utils.sha3(  
+          blockchain.account + contractAddress,
           { encoding: "hex" }
         );
 
@@ -101,12 +105,10 @@ function Dapp() {
         console.log('Hashed Address: ', sign)
         console.log('Sig:', sig)
 
-        console.log(blockchain.smartContract.methods);
-
-
-        blockchain.smartContract.methods.presale(amount, sig).send({
+  
+        blockchain.smartContract.methods.presaleMint(amount, sig.r, sig.s, sig.v).send({
           from: blockchain.account,
-          value: totalCostInWei,
+          value: costing,
         }).then((recipt) => {
           console.log(recipt);
           settingMessage(
