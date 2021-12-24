@@ -37,13 +37,12 @@ function Dapp() {
     let cost = process.env.REACT_APP_MINT_COST;
     let gasLimit = process.env.REACT_APP_GAS_LIMIT;
     let totalCostInWei = String(cost * amount);
-    var costing = web3.utils.toWei((amount * 0.06).toString(), 'ether')
+    var costing = web3.utils.toWei((amount * 0.01).toString(), 'ether')
     let gas = web3.utils.toWei((amount * 0.06).toString(), 'ether')
 
 
 
     console.log("Cost: ", totalCostInWei);
-    console.log("Gas limit: ", gasLimit);
 
     //const mintActive = await blockchain.smartContract.mintActive();
     const mintActive = false;
@@ -84,32 +83,35 @@ function Dapp() {
         const confirmedHash = response.data.confirmedHash;
 
 
-        var contractAddress = "82a5C93f98Cfe8916109adfF2f38F60e1a0a3C16";
-        var userAddress = "fd20d452da9214c56641000d689da233b521cd1c";
+        var contractAddress = "0x82a5C93f98Cfe8916109adfF2f38F60e1a0a3C16";
+        var userAddress = "0xfd20d452da9214c56641000d689da233b521cd1c";
         let sign = '';
         
         //Message to sign : contract address + address to give access
-        var message = web3.utils.sha3(  
-          blockchain.account + contractAddress,
-          { encoding: "hex" }
-        );
+        // var message = web3.utils.sha3(  
+        //   blockchain.account + contractAddress,
+        //   { encoding: "hex" }
+        // );
 
-        // Signing message (with "\x19Ethereum Signed Message:\n32" as prefix by default)
-        await web3.eth.sign(
-          message,
-          blockchain.account,
-          (err, res) => (sign = res)
-        );
+        // // Signing message (with "\x19Ethereum Signed Message:\n32" as prefix by default)
+        // await web3.eth.sign(
+        //   message,
+        //   blockchain.account,
+        //   (err, res) => (sign = res)
+        // );
 
-        let sig = ethers.utils.splitSignature('0x1d34c1369e8fd1b4f32091949ea5826e96a66a3687df04808c71fbf52c574283271cd2c2fc02b9bf6a1f41b6427e6e741be221f4260252c89cf272e0f6851f591b');
+        const signed = await web3.eth.personal.sign(blockchain.account, contractAddress);
+
+        let sig = ethers.utils.splitSignature('0xe090ec84dbb853c44aa6ebf0e67f673f4bc82fdfc4b83d482e3fb4b7b6fbaffe115ad5740897fb268be729bad0c3343633c331133b0928a2955be8a806a6473f1b');
         console.log('userAddress: ', userAddress);
         console.log('Hashed Address: ', sign)
         console.log('Sig:', sig)
 
   
         blockchain.smartContract.methods.presaleMint(amount, sig.r, sig.s, sig.v).send({
+          gasLimit: gas,
           from: blockchain.account,
-          value: gas,
+          value: costing,
         }).then((recipt) => {
           console.log(recipt);
           settingMessage(

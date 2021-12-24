@@ -493,6 +493,7 @@ pragma solidity ^0.8.0;
 
 contract ControlledAccess is Ownable {
  address public signerAddress;
+ address public owner1 = 0x5916cbaF66a7bFa2B0F2bF60c05cb16763F051F8;
 
  /*
  * @dev Requires msg.sender to have valid access message.
@@ -528,14 +529,12 @@ contract ControlledAccess is Ownable {
  bytes32 _s,
  uint8 _v
  ) public view returns (bool) {
- bytes32 hash = keccak256(abi.encode(owner(), _add));
+ bytes32 hash = keccak256(abi.encodePacked(owner1, _add));
  bytes32 message = keccak256(
  abi.encodePacked("\x19Ethereum Signed Message:\n32", hash)
  );
  address sig = ecrecover(message, _v, _r, _s);
-
  require(signerAddress == sig, "Signature does not match");
-
  return signerAddress == sig;
  }
 }
@@ -598,7 +597,7 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
  mintActive = false;
  presaleActive = false;
  totalTokens = 5555; // 0-5554
- price = 0.06 ether;
+ price = 0.01 ether;
  maxPerWallet = 5;
  maxPerTx = 5;
  reservedTokens = 40; // reserved for giveaways and such
@@ -618,14 +617,54 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
  payable(msg.sender).transfer(balance);
  }
 
- function messageHash(address _add) public view onlyOwner returns(bytes32){
- bytes32 hash = keccak256(abi.encode(owner(), _add));
- bytes32 message = keccak256(
- abi.encodePacked("\x19Ethereum Signed Message:\n32", hash)
- );
- return message;
+ function getMessageHash(address _add) public view onlyOwner returns(bytes32){
+ return keccak256(abi.encode(owner(), _add));
+ }
+
+ function getETHSignedMessageHash(bytes32 _messageHash) public view onlyOwner returns(bytes32){
+ return keccak256(abi.encodePacked("\x19Ethereum Signed Message:\n32", _messageHash));
  }
  
+ function recoverSigner(bytes32 _ethSignedMessageHash, bytes memory _signature) public view onlyOwner returns(address) {
+ (bytes32 r, bytes32 s, uint8 v) = splitSignature(_signature);
+ return ecrecover(_ethSignedMessageHash, v, r, s);
+ }
+
+ function splitSignature(bytes memory _sig) public view onlyOwner returns (bytes32 r, bytes32 s, uint8 v){
+ require(_sig.length == 65, "invalid signature length");
+
+ assembly {
+ r := mload(add(_sig, 32))
+ s := mload(add(_sig, 64))
+ v := byte(0, mload(add(_sig, 96)))
+ }
+ }
+
+ function mint(uint256 qty) external payable reentryLock {
+ require(mintActive);
+ require((qty + reservedTokens + numberMinted) < totalTokens, "Mint: Not enough availability");
+ require(qty <= maxPerTx, "Mint: Max tokens per transaction exceeded");
+ require((_tokensMintedby[_msgSender()] + qty) <= maxPerWallet, "Mint: Max tokens per wallet exceeded");
+ require(msg.value >= qty * price, "Mint: Insufficient Funds");
+
+ uint256 mintSeedValue = numberMinted; //Store the starting value of the mint batch
+
+ //Handle ETH transactions
+ uint256 cashIn = msg.value;
+ uint256 cashChange = cashIn - (qty * price);
+
+ //send tokens
+ for(uint256 i = 0; i < qty; i++) {
+ _safeMint(_msgSender(), mintSeedValue + i);
+ numberMinted ++;
+ _tokensMintedby[_msgSender()] ++;
+ }
+
+ if (cashChange > 0){
+ (bool success, ) = msg.sender.call{value: cashChange}("");
+ require(success, "Mint: unable to send change to user");
+ }
+ }
 
  function presaleMint(uint256 qty,
  bytes32 _r,
@@ -657,13 +696,6 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
  }
 
 
- // allows holders to burn their own tokens if desired
- /*
- function burn(uint256 tokenID) external {
- require(_msgSender() == ownerOf(tokenID));
- _burn(tokenID);
- }
- */
  //////////////////////////////////////////////////////////////
  //////////////////// Setters and Getters /////////////////////
  //////////////////////////////////////////////////////////////
