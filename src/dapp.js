@@ -40,10 +40,6 @@ function Dapp() {
     var costing = web3.utils.toWei((amount * 0.01).toString(), 'ether')
     let gas = web3.utils.toWei((amount * 0.01).toString(), 'ether')
 
-
-
-    console.log("Cost: ", totalCostInWei);
-
     //const mintActive = await blockchain.smartContract.mintActive();
     const mintActive = false;
     if (mintActive != false) {
@@ -52,7 +48,6 @@ function Dapp() {
         gettingNFT(true);
 
         const mint = await blockchain.smartContract.methods.mint(amount, {
-          gasLimit: String(gasLimit),
           from: blockchain.account,
           value: totalCostInWei,
         });
