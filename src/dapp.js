@@ -35,7 +35,7 @@ function Dapp() {
     );
 
     //const mintActive = await blockchain.smartContract.methods.mintActive();
-    const mintActive = true;
+    const mintActive = false;
     if (mintActive != false) {
       console.log("Attempting to mintNoodle");
       try {
