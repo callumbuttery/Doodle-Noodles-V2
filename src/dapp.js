@@ -28,36 +28,31 @@ function Dapp() {
   const presale = useSelector((state) => state.presale);
 
   const getDoodle = async (amount) => {
-
     let web3 = new Web3(window.ethereum);
     const { ethereum } = window;
-    const provider = new ethers.providers.Web3Provider(ethereum);
-    const signer = provider.getSigner();
 
-    let cost = process.env.REACT_APP_MINT_COST;
-    let gasLimit = process.env.REACT_APP_GAS_LIMIT;
-    let totalCostInWei = String(cost * amount);
-    var costing = web3.utils.toWei((amount * 0.01).toString(), 'ether')
-    let gas = web3.utils.toWei((amount * 0.01).toString(), 'ether')
+    var costing = web3.utils.toWei(
+      (amount * process.env.REACT_APP_MINT_COST).toString(),
+      "ether"
+    );
 
-    //const mintActive = await blockchain.smartContract.mintActive();
-    const mintActive = false;
+    const mintActive = await blockchain.smartContract.methods.mintActive();
     if (mintActive != false) {
-      console.log("hit mint active");
+      console.log("Attempting to mintNoodle");
       try {
         gettingNFT(true);
 
-        const mint = await blockchain.smartContract.methods.mint(amount, {
-          from: blockchain.account,
-          value: totalCostInWei,
-        });
-
-        const finishedMinting = mint.wait();
-        settingMessage(
-          "Successfully minted a Doodle Noodle: ",
-          finishedMinting
-        );
-        gettingNFT(false);
+        blockchain.smartContract.methods
+          .mintNoodle(amount)
+          .send({
+            from: blockchain.account,
+            value: costing,
+          })
+          .then((recipt) => {
+            console.log(recipt);
+            settingMessage("Successfully minted a Doodle Noodle!!");
+            gettingNFT(false);
+          });
         dispatch(fetchData(blockchain.account));
       } catch (e) {
         console.log("Something went wrong: ", e);
@@ -65,7 +60,7 @@ function Dapp() {
         gettingNFT(false);
       }
     } else {
-      console.log("hit smart contract mint");
+      console.log("Attempting to mint presale");
       try {
         gettingNFT(true);
 
@@ -77,45 +72,29 @@ function Dapp() {
         const verified = response.data.verified;
         const confirmedHash = response.data.confirmedHash;
 
+        if (response.data.verified != false) {
+          const signature =
+            "0xe090ec84dbb853c44aa6ebf0e67f673f4bc82fdfc4b83d482e3fb4b7b6fbaffe115ad5740897fb268be729bad0c3343633c331133b0928a2955be8a806a6473f1b";
 
-        var contractAddress = "0x82a5C93f98Cfe8916109adfF2f38F60e1a0a3C16";
-        var userAddress = "0xfd20d452da9214c56641000d689da233b521cd1c";
-        let sign = '';
-        
-        //Message to sign : contract address + address to give access
-        // var message = web3.utils.sha3(  
-        //   blockchain.account + contractAddress,
-        //   { encoding: "hex" }
-        // );
+          let sig = ethers.utils.splitSignature(signature);
 
-        // // Signing message (with "\x19Ethereum Signed Message:\n32" as prefix by default)
-        // await web3.eth.sign(
-        //   message,
-        //   blockchain.account,
-        //   (err, res) => (sign = res)
-        // );
-
-        //const signed = await web3.eth.personal.sign(blockchain.account, contractAddress);
-
-        const signature = "0xe090ec84dbb853c44aa6ebf0e67f673f4bc82fdfc4b83d482e3fb4b7b6fbaffe115ad5740897fb268be729bad0c3343633c331133b0928a2955be8a806a6473f1b";
-
-        let sig = ethers.utils.splitSignature(signature);
-        console.log('userAddress: ', userAddress);
-        console.log('Hashed Address: ', sign)
-        console.log('Sig:', sig)
-
-  
-        blockchain.smartContract.methods.presaleMint(amount, sig.r, sig.s, sig.v).send({
-          from: blockchain.account,
-          value: costing,
-        }).then((recipt) => {
-          console.log(recipt);
-          settingMessage(
-            "Successfully minted a Doodle Noodle: ",
-          );
+          blockchain.smartContract.methods
+            .presaleMint(amount, sig.r, sig.s, sig.v)
+            .send({
+              from: blockchain.account,
+              value: costing,
+            })
+            .then((recipt) => {
+              console.log(recipt);
+              settingMessage("Successfully minted a Doodle Noodle!!");
+              gettingNFT(false);
+            });
+            gettingNFT(false);
+          dispatch(fetchData(blockchain.account));
+        } else {
           gettingNFT(false);
-        })
-        dispatch(fetchData(blockchain.account));
+          settingMessage("Account not whitelisted for presale");
+        }
       } catch (e) {
         console.log("Something went wrong: ", e);
         settingMessage("An error occured, try minting again!");
@@ -156,7 +135,7 @@ function Dapp() {
         ) : (
           <s.Container flex={1} ai={"center"} style={{ padding: 24 }}>
             <img src={logo} className="App-logo"></img>
-            <p>Get a Doodle Noodle</p>
+            <p>{message}</p>
             <input
               disabled={nft}
               type={"number"}
@@ -169,14 +148,6 @@ function Dapp() {
                 event.preventDefault();
               }}
             ></input>
-            <s.TextDescription
-              style={{
-                textAlign: "center",
-                color: "#16194F",
-              }}
-            >
-              {message}
-            </s.TextDescription>
             <button
               disabled={nft}
               onClick={(e) => {
