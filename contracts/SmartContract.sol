@@ -546,7 +546,6 @@ contract ControlledAccess is Ownable {
 
 pragma solidity ^0.8.0;
 
-// author: @grinthedark 
 // project: Doodle Noodles
 /**
  ____                        __   ___               __  __                      __   ___                    
@@ -566,22 +565,9 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
     // Declare variables
     string private _name;
     string private _symbol;
-    string private _baseNoodleURI;
+    string private _baseURI;
     string public provenanceHash;
     string public baseExtension;
-    string public notRevealedUri;
-
-     // Mapping from token ID to owner address
-    mapping(uint256 => address) private _owners;
-
-    // Mapping owner address to token count
-    mapping(address => uint256) private _balances;
-
-    // Mapping from token ID to approved address
-    mapping(uint256 => address) private _tokenApprovals;
-
-    // Mapping from owner to operator approvals
-    mapping(address => mapping(address => bool)) private _operatorApprovals;
 
     bool public mintActive;
     bool public presaleActive;
@@ -592,27 +578,33 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
     uint256 public maxPerWallet;
     uint256 public maxPerTx;
     uint256 public reservedNoodles;
+    uint256 public goldenNoodles;
+    uint256 public startingIndex;
+    uint256 public startingIndexBlock;
     
-    
-
+    // Mappings
+    mapping(uint256 => address) private _owners;
+    mapping(address => uint256) private _balances;
+    mapping(uint256 => address) private _tokenApprovals;
+    mapping(address => mapping(address => bool)) private _operatorApprovals;
     mapping(address => uint256) private _tokensMintedby;
 
     // Initialise contract
     constructor() {
-        _name = "Doodle Noodles";
-        _symbol = "Noods";
+        _name = "Doodle Noodles Official";
+        _symbol = "NOODS";
 
         revealed = false;
         mintActive = false;
         presaleActive = false;
-        totalNoodles = 5555; // 0-5554
-        price = 0.01 ether;
+        totalNoodles = 5555;
+        price = 0.06 ether;
         maxPerWallet = 5;
         maxPerTx = 5;
-        reservedNoodles = 30; // reserved for giveaways and such
+        reservedNoodles = 40; // reserved for giveaways and such
+        goldenNoodles = 5; // Defines 5 custom Golden Noodles
         signerAddress = 0x5916cbaF66a7bFa2B0F2bF60c05cb16763F051F8;
         baseExtension = ".json";
-        notRevealedUri = "https://www.doodlenoodles.io/unrevealed.json";
     }
 
     //@dev See {IERC165-supportsInterface}. Interfaces Supported by this Standard
@@ -623,15 +615,14 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
                 interfaceId == SmartContract.onERC721Received.selector;
     }
 
-
     // Withdraw function
-    function withdraw(address payable _to) public onlyOwner {
+    function withdraw() public onlyOwner {
         uint256 balance = address(this).balance;
-        _to.transfer(balance);
+        payable(msg.sender).transfer(balance);
     }
 
     function giveAway(address _to, uint256 _qty) external onlyOwner() {
-        require( _qty <= reservedNoodles, "Exceeds reserved Noodles supply" );
+        require( _qty <= (reservedNoodles - goldenNoodles), "Exceeds reserved Noodles supply" );
 
         uint256 mintSeedValue = numberMinted;
         for(uint256 i = 0; i < _qty; i++) {
@@ -641,14 +632,25 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
         reservedNoodles -= _qty;
     }
 
+     function goldenNoodle(address _to, uint256 _qty) external onlyOwner() {
+        require( _qty <= goldenNoodles, "Exceeds reserved Golden Noodles supply" );
+
+        uint256 mintSeedValue = numberMinted;
+        for(uint256 i = 0; i < _qty; i++) {
+            _safeMint(_to, mintSeedValue + i);
+            numberMinted ++; 
+        }
+        goldenNoodles -= _qty;
+    }
+
     function mintNoodle(uint256 qty) external payable reentryLock {
         require(mintActive);
         require((qty + numberMinted) < (5555 - reservedNoodles), "Not enough availability");
         require(qty <= maxPerTx, "Exceeds max allowed per transaction");
         require((_tokensMintedby[_msgSender()] + qty) <= maxPerWallet, "Exceeds Max allowed per wallet");
-        if (msg.sender != owner()) {
         require(msg.value >= qty * price, "Insufficient Funds");
-        }
+        
+
         uint256 mintSeedValue = numberMinted; //Store the starting value of the mint batch
 
         //Handle ETH transactions
@@ -677,11 +679,10 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
         require((qty + numberMinted) < (5555 - reservedNoodles), "Not enough availability");
         require(qty <= maxPerTx, "Exceeds max allowed per transaction");
         require((_tokensMintedby[_msgSender()] + qty) <= maxPerWallet, "Exceeds Max allowed per wallet");
-        if (msg.sender != owner()) {
         require(msg.value >= qty * price, "Insufficient Funds");
-        }
+        
 
-           uint256 mintSeedValue = numberMinted; //Store the starting value of the mint batch
+        uint256 mintSeedValue = numberMinted; //Store the starting value of the mint batch
 
         //Handle ETH transactions
         uint256 cashIn = msg.value;
@@ -701,12 +702,17 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
     }
 
 
-    function reveal() public onlyOwner {
-        revealed = true;
+    function tokenURI(uint256 tokenId) public view virtual returns (string memory) {
+        require(_exists(tokenId),"ERC721Metadata: URI query for nonexistent token");
+        if(revealed == false) {
+        return string(abi.encodePacked(_baseURI, "0.json"));
+        }
+        // Otherwise
+        return string(abi.encodePacked(_baseURI, toString(tokenId), ".json")); 
     }
 
-    function setNotRevealedURI(string memory _notRevealedURI) public onlyOwner {
-        notRevealedUri = _notRevealedURI;
+    function reveal() public onlyOwner {
+        revealed = true;
     }
 
     function setMaxPerWallet(uint256 maxWallet) external onlyOwner {
@@ -718,7 +724,7 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
     }
 
     function setBaseURI(string memory newURI) public onlyOwner {
-        _baseNoodleURI = newURI;
+        _baseURI = newURI;
     }
 
     function activateMint() public onlyOwner {
@@ -744,8 +750,9 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
     function totalSupply() external view returns (uint256) {
         return numberMinted;
     }
-    /////////
- function getBalance(address tokenAddress) view external returns (uint256) {
+
+    ///////// required functions
+    function getBalance(address tokenAddress) view external returns (uint256) {
         return _balances[tokenAddress];
     }
 
@@ -845,24 +852,6 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
         _safeTransfer(from, to, tokenId, _data);
     }
 
-    /**
-     * @dev Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients
-     * are aware of the ERC721 protocol to prevent tokens from being forever locked.
-     *
-     * `_data` is additional data, it has no specified format and it is sent in call to `to`.
-     *
-     * This internal function is equivalent to {safeTransferFrom}, and can be used to e.g.
-     * implement alternative mechanisms to perform token transfer, such as signature-based.
-     *
-     * Requirements:
-     *
-     * - `from` cannot be the zero address.
-     * - `to` cannot be the zero address.
-     * - `tokenId` token must exist and be owned by `from`.
-     * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.
-     *
-     * Emits a {Transfer} event.
-     */
     function _safeTransfer(
         address from,
         address to,
@@ -873,49 +862,20 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
         require(_checkOnERC721Received(from, to, tokenId, _data), "ERC721: transfer to non ERC721Receiver implementer");
     }
 
-    /**
-     * @dev Returns whether `tokenId` exists.
-     *
-     * Tokens can be managed by their owner or approved accounts via {approve} or {setApprovalForAll}.
-     *
-     * Tokens start existing when they are minted (`_mint`),
-     * and stop existing when they are burned (`_burn`).
-     */
     function _exists(uint256 tokenId) internal view virtual returns (bool) {
         return _owners[tokenId] != address(0);
     }
 
-    /**
-     * @dev Returns whether `spender` is allowed to manage `tokenId`.
-     *
-     * Requirements:
-     *
-     * - `tokenId` must exist.
-     */
     function _isApprovedOrOwner(address spender, uint256 tokenId) internal view virtual returns (bool) {
         require(_exists(tokenId), "ERC721: operator query for nonexistent token");
         address owner = ownerOf(tokenId);
         return (spender == owner || getApproved(tokenId) == spender || isApprovedForAll(owner, spender));
     }
 
-    /**
-     * @dev Safely mints `tokenId` and transfers it to `to`.
-     *
-     * Requirements:
-     *
-     * - `tokenId` must not exist.
-     * - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer.
-     *
-     * Emits a {Transfer} event.
-     */
     function _safeMint(address to, uint256 tokenId) internal virtual {
         _safeMint(to, tokenId, "");
     }
 
-    /**
-     * @dev Same as {xref-ERC721-_safeMint-address-uint256-}[`_safeMint`], with an additional `data` parameter which is
-     * forwarded in {IERC721Receiver-onERC721Received} to contract recipients.
-     */
     function _safeMint(
         address to,
         uint256 tokenId,
@@ -928,18 +888,6 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
         );
     }
 
-    /**
-     * @dev Mints `tokenId` and transfers it to `to`.
-     *
-     * WARNING: Usage of this method is discouraged, use {_safeMint} whenever possible
-     *
-     * Requirements:
-     *
-     * - `tokenId` must not exist.
-     * - `to` cannot be the zero address.
-     *
-     * Emits a {Transfer} event.
-     */
     function _mint(address to, uint256 tokenId) internal virtual {
         require(to != address(0), "ERC721: mint to the zero address");
         require(!_exists(tokenId), "ERC721: token already minted");
@@ -952,16 +900,6 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
         emit Transfer(address(0), to, tokenId);
     }
 
-    /**
-     * @dev Destroys `tokenId`.
-     * The approval is cleared when the token is burned.
-     *
-     * Requirements:
-     *
-     * - `tokenId` must exist.
-     *
-     * Emits a {Transfer} event.
-     */
     function _burn(uint256 tokenId) internal virtual {
         address owner = ownerOf(tokenId);
 
@@ -976,17 +914,6 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
         emit Transfer(owner, address(0), tokenId);
     }
 
-    /**
-     * @dev Transfers `tokenId` from `from` to `to`.
-     *  As opposed to {transferFrom}, this imposes no restrictions on msg.sender.
-     *
-     * Requirements:
-     *
-     * - `to` cannot be the zero address.
-     * - `tokenId` token must be owned by `from`.
-     *
-     * Emits a {Transfer} event.
-     */
     function _transfer(
         address from,
         address to,
@@ -1007,26 +934,11 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
         emit Transfer(from, to, tokenId);
     }
 
-    /**
-     * @dev Approve `to` to operate on `tokenId`
-     *
-     * Emits a {Approval} event.
-     */
     function _approve(address to, uint256 tokenId) internal virtual {
         _tokenApprovals[tokenId] = to;
         emit Approval(ownerOf(tokenId), to, tokenId);
     }
 
-    /**
-     * @dev Internal function to invoke {IERC721Receiver-onERC721Received} on a target address.
-     * The call is not executed if the target address is not a contract.
-     *
-     * @param from address representing the previous owner of the given token ID
-     * @param to target address that will receive the tokens
-     * @param tokenId uint256 ID of the token to be transferred
-     * @param _data bytes optional data to send along with the call
-     * @return bool whether the call correctly returned the expected magic value
-     */
     function _checkOnERC721Received(
         address from,
         address to,
@@ -1050,73 +962,54 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
         }
     }
 
-    // *********************** ERC721 Token Receiver **********************
-    /**
-     * @dev Whenever an {IERC721} `tokenId` token is transferred to this contract via {IERC721-safeTransferFrom}
-     * by `operator` from `from`, this function is called.
-     *
-     * It must return its Solidity selector to confirm the token transfer.
-     * If any other value is returned or the interface is not implemented by the recipient, the transfer will be reverted.
-     *
-     * The selector can be obtained in Solidity with `IERC721.onERC721Received.selector`.
-     */
     function onERC721Received(address _operator, address _from, uint256 _tokenId, bytes calldata _data) external returns(bytes4) {
         //InterfaceID=0x150b7a02
         return this.onERC721Received.selector;
     }
 
-    /**
-     * @dev Hook that is called before any token transfer. This includes minting
-     * and burning.
-     *
-     * Calling conditions:
-     *
-     * - When `from` and `to` are both non-zero, ``from``'s `tokenId` will be
-     * transferred to `to`.
-     * - When `from` is zero, `tokenId` will be minted for `to`.
-     * - When `to` is zero, ``from``'s `tokenId` will be burned.
-     * - `from` and `to` are never both zero.
-     *
-     * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].
-     */
     function _beforeTokenTransfer(
         address from,
         address to,
         uint256 tokenId
     ) internal virtual {}
 
-    // **************************************** Metadata Standard Functions **********
-    //@dev Returns the token collection name.
     function name() external view returns (string memory){
         return _name;
     }
 
-    //@dev Returns the token collection symbol.
     function symbol() external view returns (string memory){
         return _symbol;
     }
 
     function contractURI() public view returns (string memory) {
-            return string(abi.encodePacked(_baseNoodleURI,"contract.json"));
+        return string(abi.encodePacked(_baseURI,"contract.json"));
     }
 
+    //Provenance
     function setProvenanceHash(string calldata hash) public onlyOwner {
         provenanceHash = hash;
     }
+    
+    function setStartingIndex() public onlyOwner {
+        require(startingIndex == 0, "Starting index is already set");
+        require(startingIndexBlock != 0, "Starting index block must be set");
 
-    function tokenURI(uint256 tokenId) public view virtual returns (string memory) {
-        require(_exists(tokenId),"ERC721Metadata: URI query for nonexistent token"
-    );
-        if(revealed == false) {
-        return notRevealedUri;
+        startingIndex = uint256(blockhash(startingIndexBlock)) % totalNoodles;
+        // Just a sanity case in the worst case if this function is called late (EVM only stores last 256 block hashes)
+        if (block.number % startingIndexBlock > 255) {
+            startingIndex = uint256(blockhash(block.number - 1)) % totalNoodles;
         }
-        //Otherwise
-        return string(abi.encodePacked(_baseNoodleURI, toString(tokenId), ".json"));
+        // Prevent default sequence
+        if (startingIndex == 0) {
+            startingIndex = startingIndex + 1;
+        }
     }
 
-    /**
-     * Set the starting index for the collection
-     */
+    function setStartingIndexBlock() public onlyOwner {
+        require(startingIndex == 0, "Starting index is already set");
+
+        startingIndexBlock = block.number;
+    }
 
     receive() external payable {}
 
