@@ -70,7 +70,7 @@ function Dapp() {
 
         console.log('wallet: ', blockchain.account);
         console.log('verified: ', response.data.verified);
-        console.log('confirmedHash: ', response.data.verified);
+        console.log('confirmedHash: ', response.data.confirmedHash);
 
         const verified = response.data.verified;
         const confirmedHash = response.data.confirmedHash;
