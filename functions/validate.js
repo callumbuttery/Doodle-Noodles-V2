@@ -13,7 +13,7 @@ exports.handler = async function(event, context) {
     // }
 
     for (var i = 0, l = associatedAccounts.length; i < l; i++) {
-        if(associatedAccounts[i].metaMaskHash === data) {
+        if(associatedAccounts[i].metaMaskHash == data) {
             verified = true;
             confirmedHash = associatedAccounts[i].whitelistHash;
         }
