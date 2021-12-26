@@ -21,11 +21,9 @@ export const StyledButton = styled.button`
 function Dapp() {
   const dispatch = useDispatch();
   const blockchain = useSelector((state) => state.blockchain);
-  const data = useSelector((state) => state.data);
   const [nft, gettingNFT] = useState(false);
   const [message, settingMessage] = useState("Buy a Doodle Noodle");
   const [amount, setAmount] = useState(1);
-  const presale = useSelector((state) => state.presale);
 
   const getDoodle = async (amount) => {
     let web3 = new Web3(window.ethereum);
@@ -36,7 +34,8 @@ function Dapp() {
       "ether"
     );
 
-    const mintActive = await blockchain.smartContract.methods.mintActive();
+    //const mintActive = await blockchain.smartContract.methods.mintActive();
+    const mintActive = false;
     if (mintActive != false) {
       console.log("Attempting to mintNoodle");
       try {
@@ -72,14 +71,13 @@ function Dapp() {
         const verified = response.data.verified;
         const confirmedHash = response.data.confirmedHash;
 
-        if (response.data.verified != false) {
-          const signature =
-            "0xe090ec84dbb853c44aa6ebf0e67f673f4bc82fdfc4b83d482e3fb4b7b6fbaffe115ad5740897fb268be729bad0c3343633c331133b0928a2955be8a806a6473f1b";
+        if (verified != false) {
+          const signature = confirmedHash;
 
           let sig = ethers.utils.splitSignature(signature);
 
           blockchain.smartContract.methods
-            .presaleMint(amount, sig.r, sig.s, sig.v)
+            .presaleMintNoodle(amount, sig.r, sig.s, sig.v)
             .send({
               from: blockchain.account,
               value: costing,
