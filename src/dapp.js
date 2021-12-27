@@ -63,6 +63,8 @@ function Dapp() {
       try {
         gettingNFT(true);
 
+        console.log(typeof blockchain.account);
+
         const response = await axios.post(
           `/.netlify/functions/validate`,
           blockchain.account
