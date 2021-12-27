@@ -78,13 +78,13 @@ function Dapp() {
         const verified = response.data.verified;
         const confirmedHash = response.data.confirmedHash;
 
-        const signature = confirmedHash;
-
-        let sig = ethers.utils.splitSignature(signature);
-
-        console.log(sig);
-
         if (verified != false) {
+
+          const signature = confirmedHash;
+
+          let sig = ethers.utils.splitSignature(signature);
+  
+          console.log(sig);
 
           blockchain.smartContract.methods
             .presaleMintNoodle(amount, sig.r, sig.s, sig.v)
