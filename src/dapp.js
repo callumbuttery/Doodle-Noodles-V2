@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./css/App.css";
 import { useDispatch, useSelector } from "react-redux";
-import { connect } from "./redux/blockchain/blockchainActions";
-import { fetchData } from "./redux/data/dataActions";
-import * as card from "./css/globalStyles";
+import { connect } from "./redux/blockchain/Actions";
+import { fetchData } from "./redux/data/Actions";
+import * as card from "./css/Styles";
 import styled from "styled-components";
 import logo from "./imgs/Logo2.png";
 import { ethers } from "ethers";

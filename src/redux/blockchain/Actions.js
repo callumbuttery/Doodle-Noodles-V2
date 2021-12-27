@@ -1,8 +1,6 @@
-// constants
 import Web3 from "web3";
 import SmartContract from "../../contracts/SmartContract.json";
-// log
-import { fetchData } from "../data/dataActions";
+import { fetchData } from "../data/Actions";
 
 const connectRequest = () => {
   return {
@@ -55,14 +53,12 @@ export const connect = () => {
               web3: web3,
             })
           );
-          // Add listeners start
           window.ethereum.on("accountsChanged", (accounts) => {
             dispatch(updateAccount(accounts[0]));
           });
           window.ethereum.on("chainChanged", () => {
             window.location.reload();
           });
-          // Add listeners end
         } else {
           dispatch(connectFailed("Change network to ETH mainnet."));
         }
