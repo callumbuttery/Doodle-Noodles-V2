@@ -1,5 +1,5 @@
-const SmartContract = artifacts.require("SmartContract");
+const DoodleNoodles = artifacts.require("DoodleNoodles");
 
 module.exports = function (deployer) {
-  deployer.deploy(SmartContract);
+  deployer.deploy(DoodleNoodles);
 };

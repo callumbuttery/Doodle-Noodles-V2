@@ -558,7 +558,7 @@ pragma solidity ^0.8.0;
  */
 
 
-contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
+contract DoodleNoodles is IERC721, Ownable, Functional, ControlledAccess {
 
     using Address for address;
 
@@ -567,7 +567,6 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
     string private _symbol;
     string private _baseURI;
     string public provenanceHash;
-    string public baseExtension;
 
     bool public mintActive;
     bool public presaleActive;
@@ -604,7 +603,6 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
         reservedNoodles = 40; // reserved for giveaways and such
         goldenNoodles = 5; // Defines 5 custom Golden Noodles
         signerAddress = 0x5916cbaF66a7bFa2B0F2bF60c05cb16763F051F8;
-        baseExtension = ".json";
     }
 
     //@dev See {IERC165-supportsInterface}. Interfaces Supported by this Standard
@@ -612,7 +610,7 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
         return  interfaceId == type(IERC721).interfaceId ||
                 interfaceId == type(IERC721Metadata).interfaceId ||
                 interfaceId == type(IERC165).interfaceId ||
-                interfaceId == SmartContract.onERC721Received.selector;
+                interfaceId == DoodleNoodles.onERC721Received.selector;
     }
 
     // Withdraw function
@@ -645,12 +643,11 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
 
     function mintNoodle(uint256 qty) external payable reentryLock {
         require(mintActive);
-        require((qty + numberMinted) < (5555 - reservedNoodles), "Not enough availability");
+        require((qty + numberMinted + reservedNoodles) < totalNoodles, "Not enough availability");
         require(qty <= maxPerTx, "Exceeds max allowed per transaction");
         require((_tokensMintedby[_msgSender()] + qty) <= maxPerWallet, "Exceeds Max allowed per wallet");
         require(msg.value >= qty * price, "Insufficient Funds");
         
-
         uint256 mintSeedValue = numberMinted; //Store the starting value of the mint batch
 
         //Handle ETH transactions
@@ -676,12 +673,11 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
         uint8 _v
                         ) external payable onlyValidAccess(_r, _s, _v) reentryLock {
         require(presaleActive);
-        require((qty + numberMinted) < (5555 - reservedNoodles), "Not enough availability");
+        require((qty + numberMinted + reservedNoodles) < totalNoodles, "Not enough availability");
         require(qty <= maxPerTx, "Exceeds max allowed per transaction");
         require((_tokensMintedby[_msgSender()] + qty) <= maxPerWallet, "Exceeds Max allowed per wallet");
         require(msg.value >= qty * price, "Insufficient Funds");
         
-
         uint256 mintSeedValue = numberMinted; //Store the starting value of the mint batch
 
         //Handle ETH transactions
@@ -745,6 +741,10 @@ contract SmartContract is IERC721, Ownable, Functional, ControlledAccess {
 
     function setPrice(uint256 newPrice) public onlyOwner {
         price = newPrice;
+    }
+
+    function setTotalTokens(uint256 numTokens) public onlyOwner {
+        totalNoodles = numTokens;
     }
 
     function totalSupply() external view returns (uint256) {

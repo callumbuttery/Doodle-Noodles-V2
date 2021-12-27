@@ -25,18 +25,25 @@ function Dapp() {
   const [message, settingMessage] = useState("Buy a Doodle Noodle");
   const [amount, setAmount] = useState(1);
 
+  const getCount = (event) => {
+    console.log(event.target.value);
+    if (event.target.value > 5 || event.target.value < 1) {
+      settingMessage("Please enter an amount betwen 1 and 5");
+    } else {
+      setAmount(event.target.value);
+      settingMessage("Ready to mint " + event.target.value + " Doodle Noodles");
+    }
+  }
+
   const getDoodle = async (amount) => {
     let web3 = new Web3(window.ethereum);
-    const { ethereum } = window;
 
     var costing = web3.utils.toWei(
       (amount * process.env.REACT_APP_MINT_COST).toString(),
       "ether"
     );
 
-    //const mintActive = await blockchain.smartContract.methods.mintActive();
-    const mintActive = false;
-    if (mintActive != false) {
+    if (process.env.REACT_APP_MINTACTIVE == "true") {
       console.log("Attempting to mintNoodle");
       try {
         gettingNFT(true);
@@ -58,22 +65,15 @@ function Dapp() {
         settingMessage("An error occured, try minting again!");
         gettingNFT(false);
       }
-    } else {
+    } else if (process.env.REACT_APP_PRESALEACTIVE == "true") {
       console.log("Attempting to mint presale");
       try {
         gettingNFT(true);
-
-        console.log(typeof blockchain.account);
 
         const response = await axios.post(
           `/.netlify/functions/validate`,
           blockchain.account
         );
-
-        console.log('wallet: ', blockchain.account);
-        console.log('verified: ', response.data.verified);
-        console.log('confirmedHash: ', response.data.confirmedHash);
-        console.log('Address we have searched for: ', response.data.metamask);
 
         const verified = response.data.verified;
         const confirmedHash = response.data.confirmedHash;
@@ -100,7 +100,7 @@ function Dapp() {
             gettingNFT(false);
           dispatch(fetchData(blockchain.account));
         } else {
-          gettingNFT(false);
+          gettingNFT(true);
           settingMessage("Account not whitelisted for presale");
         }
       } catch (e) {
@@ -108,6 +108,10 @@ function Dapp() {
         settingMessage("An error occured, try minting again!");
         gettingNFT(false);
       }
+    }
+    else {
+      settingMessage("Presale / Minting not yet active");
+      gettingNFT(false);
     }
   };
 
@@ -151,7 +155,7 @@ function Dapp() {
               className="inputCount"
               max={5}
               min={1}
-              onChange={(event) => setAmount(event.target.value)}
+              onChange={getCount}
               onKeyDown={(event) => {
                 event.preventDefault();
               }}

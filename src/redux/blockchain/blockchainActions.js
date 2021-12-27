@@ -44,10 +44,9 @@ export const connect = () => {
           method: "net_version",
         });
         //const NetworkData = await SmartContract.networks[networkId];
-        if (networkId == 3) {
+        if (networkId == process.env.REACT_APP_NETWORKID) {
           const SmartContractObj = new web3.eth.Contract(
             SmartContract.abi,
-            //NetworkData.address
             process.env.REACT_APP_CONTRACT_ADDRESS
           );
           dispatch(
@@ -66,7 +65,7 @@ export const connect = () => {
           });
           // Add listeners end
         } else {
-          dispatch(connectFailed("Change network to ETH."));
+          dispatch(connectFailed("Change network to ETH mainnet."));
         }
       } catch (err) {
         dispatch(connectFailed("Something went wrong."));
