@@ -3,14 +3,13 @@ import "./css/App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from "./redux/blockchain/blockchainActions";
 import { fetchData } from "./redux/data/dataActions";
-import * as s from "./css/globalStyles";
+import * as card from "./css/globalStyles";
 import styled from "styled-components";
-import { create } from "ipfs-http-client";
 import logo from "./imgs/Logo2.png";
 import { ethers } from "ethers";
 import axios from "axios";
 import Web3 from "web3";
-import { abi } from "./redux/blockchain/abi";
+
 
 export const StyledButton = styled.button`
   padding: 8px;
@@ -123,13 +122,13 @@ function Dapp() {
 
   return (
     <div className="dappContainer">
-      <s.Screen>
+      <card.card>
         {blockchain.account === "" || blockchain.smartContract === null ? (
-          <s.Container flex={1} ai={"center"} jc={"center"}>
+          <card.Container flex={1} ai={"center"} justifyContent={"center"}>
             <img src={logo} className="App-logo"></img>
-            <s.TextTitle>Connect to the Blockchain</s.TextTitle>
-            <s.TextDescription>0.06 Eth Per Doodle</s.TextDescription>
-            <s.SpacerSmall />
+            <card.Title>Connect to the Blockchain</card.Title>
+            <card.Description>0.06 Eth Per Doodle</card.Description>
+            <card.SpacerSmall />
             <button
               onClick={(e) => {
                 e.preventDefault();
@@ -139,13 +138,13 @@ function Dapp() {
             >
               Connect
             </button>
-            <s.SpacerSmall />
+            <card.SpacerSmall />
             {blockchain.errorMsg !== "" ? (
-              <s.TextDescription>{blockchain.errorMsg}</s.TextDescription>
+              <card.Description>{blockchain.errorMsg}</card.Description>
             ) : null}
-          </s.Container>
+          </card.Container>
         ) : (
-          <s.Container flex={1} ai={"center"} style={{ padding: 24 }}>
+          <card.Container flex={1} ai={"center"} style={{ padding: 24 }}>
             <img src={logo} className="App-logo"></img>
             <p>{message}</p>
             <input
@@ -170,10 +169,10 @@ function Dapp() {
             >
               Claim NFT(s)
             </button>
-            <s.SpacerSmall />
-          </s.Container>
+            <card.SpacerSmall />
+          </card.Container>
         )}
-      </s.Screen>
+      </card.card>
     </div>
   );
 }

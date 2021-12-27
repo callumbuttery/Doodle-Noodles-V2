@@ -43,8 +43,7 @@ export const connect = () => {
         const networkId = await window.ethereum.request({
           method: "net_version",
         });
-        //const NetworkData = await SmartContract.networks[networkId];
-        if (networkId == process.env.REACT_APP_NETWORKID) {
+         if (networkId == process.env.REACT_APP_NETWORKID) {
           const SmartContractObj = new web3.eth.Contract(
             SmartContract.abi,
             process.env.REACT_APP_CONTRACT_ADDRESS
