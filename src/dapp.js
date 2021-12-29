@@ -26,8 +26,12 @@ function Dapp() {
 
   const getCount = (event) => {
     console.log(event.target.value);
-    if (event.target.value > 5 || event.target.value < 1) {
-      settingMessage("Please enter an amount betwen 1 and 5");
+    if (event.target.value > 5) {
+      settingMessage("Max number to mint is 5");
+      setAmount(5);
+    } else if (event.target.value < 1){
+      settingMessage("Min number to mint is 1");
+      setAmount(1);
     } else {
       setAmount(event.target.value);
       settingMessage("Ready to mint " + event.target.value + " Doodle Noodles");
@@ -155,9 +159,6 @@ function Dapp() {
               max={5}
               min={1}
               onChange={getCount}
-              onKeyDown={(event) => {
-                event.preventDefault();
-              }}
             ></input>
             <button
               disabled={nft}
@@ -167,7 +168,7 @@ function Dapp() {
               }}
               className="mintButton"
             >
-              Claim NFT(s)
+              Claim {amount} NFT(s)
             </button>
             <card.SpacerSmall />
           </card.Container>
