@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import "./css/App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { connect } from "./redux/blockchain/Actions";
@@ -30,6 +30,9 @@ function Dapp() {
       settingMessage("Max number to mint is 5");
       setAmount(5);
     } else if (event.target.value < 1){
+      settingMessage("Min number to mint is 1");
+      setAmount(1);
+    } else if (event.target.value == null || event.target.value == "") {
       settingMessage("Min number to mint is 1");
       setAmount(1);
     } else {
@@ -171,6 +174,7 @@ function Dapp() {
               Claim {amount} NFT(s)
             </button>
             <card.SpacerSmall />
+            <card.Description>Check your NFTs on <a rel="noreferrer" target="_blank" href="https://opensea.io/collection/doodlenoodlesofficial" >OpenSea</a></card.Description>
           </card.Container>
         )}
       </card.card>
