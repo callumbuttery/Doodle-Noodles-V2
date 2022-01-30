@@ -22,7 +22,7 @@ function nav() {
                 <a href="https://twitter.com/DoodleNoodleNFT" target='_blank'
                 ><img src={twitterIconRed} className="NavIconTwitter"
                     /></a>
-                <a href="https://discord.com/invite/rReed6g5" target='_blank'
+                <a href="https://discord.com/invite/sendnoods" target='_blank'
                 ><img src={discordIcon} className="NavIconDiscord"
                     /></a>
             </div >
