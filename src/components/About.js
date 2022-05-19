@@ -35,6 +35,10 @@ function about() {
           <p className="paragraphFont">
             Join the Twitter and Discord to get involved, we’d love to meet you.
           </p>
+
+          <b><p className="paragraphFont">
+            Read more about our goals and milestones in our Roadmap linked Above. Roadmap 2.0 coming soon!
+          </p></b>
         </div>
       </div>
     </div>
