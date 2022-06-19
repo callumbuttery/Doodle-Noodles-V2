@@ -26,7 +26,6 @@ function Nav2() {
                             <Link to="mint" className='NavItem' rel="noreferrer" style={{ textDecoration: 'none' }}>Mint</Link>
                             <Link to="TeamContainer" className='NavItem' rel="noreferrer" style={{ textDecoration: 'none' }}>Roadmap</Link>
                             <Link to="FQAMainContainer" className='NavItem' rel="noreferrer" style={{ textDecoration: 'none' }}>FAQ</Link>
-                            <a href="https://medium.com/@doodlenoodles/doodle-noodles-utility-roadmap-7a9feb9953f4" className='NavItem' rel="noreferrer" target="_blank" style={{ textDecoration: 'none' }}>Roadmap</a>
 
                             <div style={{ marginLeft: '10px'}}>
                                 <a href="https://twitter.com/DoodleNoodleNFT" rel="noreferrer" target='_blank'
