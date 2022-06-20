@@ -8,11 +8,13 @@ import RarityGuide from './components/RarityGuide.js'
 import Ramen from './components/Ramen.js'
 import OneTree from './components/OneTree.js'
 import Omen from './components/Omen.js'
+import Slide from './components/slideshow'
 
 function App() {
   return (
     <div>
       <Nav2></Nav2>
+      <Slide></Slide>
       <Welcome id='Welcome'></Welcome>
       <About></About>
       <Team id='Team'></Team>

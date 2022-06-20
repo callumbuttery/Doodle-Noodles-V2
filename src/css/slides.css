@@ -1,0 +1,15 @@
+.slide-container{
+    height: 1000px,
+  }
+
+  .slides{
+    height: 500px;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    scale: 20%
+  }
+
+  .each-slide{
+    background-color: #FF322C;
+  }
