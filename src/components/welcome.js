@@ -2,6 +2,7 @@ import logo from '../imgs/Logo3.png'
 import '../css/welcome.css';
 import Timer from '../components/Timer';
 import Dapp from '../dapp.js'
+import Minter from '../components/Dapp/Minter';
 
 function welcome() {
 
@@ -11,7 +12,7 @@ function welcome() {
             <div className="App">
                 <header className="App-header">
                     <div className="wrappedImage">
-                        <Dapp></Dapp>
+                        <Minter></Minter>
                     </div>
                 </header>
             </div>

@@ -2,7 +2,7 @@
 
 @media screen and (min-width: 2201px) and (max-width: 4000px) {
   .mint {
-    background-color: #fecc22;
+    background-color: #FEF1BE;
   }
   .App {
     text-align: center;
@@ -40,13 +40,13 @@
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    background-image: url("../imgs/Noodle.png");
+    background-image: url("../imgs/MINT.png");
     background-repeat: no-repeat;
-    background-color: #fecc22;
+    background-color: #FEF1BE;
     background-position: center;
     background-position-y: 110%;
     background-position-x: 20%;
-    background-size: 45%;
+    background-size: 80%;
     aspect-ratio: auto;
     position: static;
     padding-top: 10%;
@@ -105,16 +105,16 @@
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    background-image: url("../imgs/Noodle.png");
+    background-image: url("../imgs/MINT.png");
     background-repeat: no-repeat;
-    background-color: #fecc22;
+    background-color: #FEF1BE;
     background-position: center;
     background-position-y: 110%;
     padding-top: 0%;
     aspect-ratio: auto;
     position: static;
-    background-position-x: 30%;
-    background-size: 20%;
+    background-position-x: 50%;
+    background-size: 60%;
   }
 
   .wrappedImage {
@@ -174,16 +174,16 @@
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    background-image: url("../imgs/Noodle.png");
+    background-image: url("../imgs/MINT.png");
     background-repeat: no-repeat;
-    background-color: #fecc22;
+    background-color: #FEF1BE;
     background-position: center;
     background-position-y: 110%;
     padding-top: 10%;
     aspect-ratio: auto;
     position: static;
-    background-position-x: 10%;
-    background-size: 35%;
+    background-position-x: 50%;
+    background-size: 75%;
   }
 
   .wrappedImage {
@@ -244,7 +244,7 @@
     font-size: calc(10px + 2vmin);
     background-image: none;
     background-repeat: no-repeat;
-    background-color: #fecc22;
+    background-color: #FEF1BE;
     background-position: center;
     background-position-y: 10%;
     padding-top: 10%;

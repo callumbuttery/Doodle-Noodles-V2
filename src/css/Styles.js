@@ -33,20 +33,21 @@ export const Container = styled.div`
   background-image: ${({ image }) => (image ? `url(${image})` : "none")};
   background-size: cover;
   background-position: center;
-  filter: drop-shadow(0 0 0.75rem crimson);
 `;
 
 export const Title = styled.p`
-  color: #ffffff;
-  font-size: 20px;
+  color: #FEF1BE;
+  font-size: 80px;
+  font-family: "Fredoka One", cursive;
   font-weight: 500;
-  padding-top: 10%;
+  letter-spacing: 6px;
+  margin: 0px;
 `;
 
 
 export const Description = styled.p`
-  color: #ffffff;
-  font-size: 15px;
+  color: #FEF1BE;
+  font-size: 20px;
   font-weight: 500;
   text-decoration: none;
 `;
