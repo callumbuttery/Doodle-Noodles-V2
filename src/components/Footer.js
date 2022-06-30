@@ -1,25 +1,49 @@
-import FooterdiscordIcon from '../imgs/Discord-Logo.png';
-import FootertwitterIconRed from '../imgs/twitter-icon-red.png';
+import React from 'react';
+import {
+    MDBFooter,
+    MDBContainer,
+    MDBCol,
+    MDBRow,
+    MDBIcon
+} from 'mdb-react-ui-kit';
 
-import logo from '../imgs/Logo3.png'
-import '../css/Footer.css'
+import discordIcon from '../imgs/Discord-Logo.png';
+import twitterIconRed from '../imgs/twitter-icon-red.png';
+import mediumIcon from '../imgs/medium.png';
 
-function footer() {
 
+
+function Footer() {
     return (
-        <div className="footer">
-            <div>
-                <img src={logo} className='Footerlogo'></img>
-                <p className="hashtag">#WeLikeTheSneks</p>
-                <a href="https://twitter.com/DoodleNoodleNFT" target='_blank'
-                ><img src={FootertwitterIconRed} className="FooterIconTwitter"
-                    /></a>
-                <a href="https://discord.com/invite/rReed6g5" target='_blank'
-                ><img src={FooterdiscordIcon} className="FooterIconDiscord"
-                    /></a>
-            </div >
-        </div>
-    )
+        <MDBFooter className='bg-dark text-white'>
+            <MDBContainer className='p-4 pb-0' style={{ width: '1200px'}}>
+                <section>
+                    <a className='btn btn-outline-light btn-floating m-1 float-left' href='#!' role='button'>
+                        Testing
+                    </a>
+
+                    <a className='btn btn-outline-light btn-floating m-1' href='#!' role='button'>
+                        <MDBIcon fab icon='twitter' />
+                    </a>
+
+                    <a className='btn btn-outline-light btn-floating m-1' href='#!' role='button'>
+                        <MDBIcon fab icon='google' />
+                    </a>
+                    <a className='btn btn-outline-light btn-floating m-1' href='#!' role='button'>
+                        <MDBIcon fab icon='instagram' />
+                    </a>
+
+                    <a className='btn btn-outline-light btn-floating m-1' href='#!' role='button'>
+                        <MDBIcon fab icon='linkedin-in' />
+                    </a>
+
+                    <a className='btn btn-outline-light btn-floating m-1' href='#!' role='button'>
+                        <MDBIcon fab icon='github' />
+                    </a>
+                </section>
+            </MDBContainer>
+        </MDBFooter>
+    );
 }
 
-export default footer;
+export default Footer;

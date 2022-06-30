@@ -1,14 +1,7 @@
 import Welcome from './components/welcome.js'
-import Team from './components/Team.js'
 import Nav2 from './components/Nav2.js'
-import About from './components/About.js'
-import FAQ from './components/FAQ.js'
-import Rune from './components/Rune.js'
-import RarityGuide from './components/RarityGuide.js'
-import Ramen from './components/Ramen.js'
-import OneTree from './components/OneTree.js'
-import Omen from './components/Omen.js'
 import Slide from './components/slideshow'
+import Footer from './components/Footer.js'
 
 function App() {
   return (
@@ -16,14 +9,7 @@ function App() {
       <Nav2></Nav2>
       <Slide></Slide>
       <Welcome id='Welcome'></Welcome>
-      <About></About>
-      <Team id='Team'></Team>
-      <FAQ id='about'></FAQ>
-      <OneTree></OneTree>
-      <Ramen></Ramen>
-      <Omen></Omen>
-      <Rune></Rune>
-      <RarityGuide></RarityGuide>
+      <Footer></Footer>
     </div>
 
   );
