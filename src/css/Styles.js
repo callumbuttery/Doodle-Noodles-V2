@@ -37,7 +37,7 @@ export const Container = styled.div`
 
 export const Title = styled.p`
   color: #FEF1BE;
-  font-size: 80px;
+  font-size: 70px;
   font-family: "Fredoka One", cursive;
   font-weight: 500;
   letter-spacing: 6px;
