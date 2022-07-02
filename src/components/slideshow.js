@@ -1,29 +1,35 @@
 import React from 'react';
-import { Slide } from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css'
-import '../css/slides.css';
+import {
+  MDBCarousel,
+  MDBCarouselInner,
+  MDBCarouselItem,
+  MDBCarouselElement,
+} from 'mdb-react-ui-kit';
+
 import mainSlide from '../imgs/slide1.png';
 
-const slideImages = [
-  {
-    url: mainSlide,
-    caption: 'Slide 1'
-  },
-];
 
-const Slideshow = () => {
-    return (
-      <div className="slide-container" style={{ height:'500px'}}>
-        <Slide>
-         {slideImages.map((slideImage, index)=> (
-            <div className="each-slide" key={index}>
-              <div style={{'backgroundImage': `url(${slideImage.url})`}} className="slides">
-              </div>
-            </div>
-          ))} 
-        </Slide>
+export default function slideshow() {
+  return (
+
+  
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 mx-auto"></div>
+          <MDBCarousel showControls interval={10000}>
+            <MDBCarouselInner>
+              <MDBCarouselItem className='active'>
+                <MDBCarouselElement src={mainSlide} alt='...' />
+              </MDBCarouselItem>
+              <MDBCarouselItem>
+                <MDBCarouselElement src={mainSlide} alt='...' />
+              </MDBCarouselItem>
+              <MDBCarouselItem>
+                <MDBCarouselElement src={mainSlide} alt='...' />
+              </MDBCarouselItem>
+            </MDBCarouselInner>
+          </MDBCarousel>
+        </div>
       </div>
-    )
+  );
 }
-
-export default Slideshow;

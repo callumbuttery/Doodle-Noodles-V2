@@ -7,7 +7,9 @@ function App() {
   return (
     <div>
       <Nav2></Nav2>
-      <Slide></Slide>
+      <div style={{ backgroundColor: '#FF322C'}}>
+        <Slide></Slide>
+      </div>
       <Welcome id='Welcome'></Welcome>
       <Footer></Footer>
     </div>
