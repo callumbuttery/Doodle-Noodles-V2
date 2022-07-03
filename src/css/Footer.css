@@ -1,50 +1,71 @@
-@font-face {
-    font-family: 'navFont';
-    src: url('../fonts/MyriadProBlackSemiCondensed.otf');
-  }
-  
-  .footer {
-      padding: 10px;
-      background-color: #002741;
-      color: #002741 ;
-      overflow: hidden;
-      text-align: right;
-    }
-    
-    .footer a {
-      color: #fafafa;
-      font-size: 20px;
-      margin-left: 10px;
-      margin-right: 10px;
-      text-decoration: none;
-    }
-  
-    .Footerlogo{
-        height: 6%;
-        width: 5%;
-        position: relative;
-        right: 75%;
-        bottom: 90%;
-    }
-  
-    .footer a:hover{
-        color: rgb(40, 153, 206);
-    }
-    
-    * {
-      margin: 0%;
-    }
-  
-    .FooterIconTwitter {
-      height: 20px;
-      width: 30px;
-    }
-    .FooterIconDiscord {
-      height: 15px;
-      width: 25px;
-    }
+.Footer2MainContainer {
+  background-color: #1C1C1C;
 
-    .hashtag{
-       color: white;
-    }
-  
+}
+
+.Footer2SecondaryContainer {
+  text-align: center;
+  max-width: 1300px;
+  margin: auto;
+}
+
+.FooterItem {
+  color: white;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  color: #FEF1BE;
+  font-size: 15px;  
+  margin-left: 15px;
+  margin-right: 15px;
+  font-family: navFont;
+  background-color: transparent;
+}
+
+.custom-toggler.navbar-toggler {
+  border-color: rgb(255, 102, 203);
+}
+
+.FooterIconTwitter {
+  height: 20px;
+  width: 30px;
+}
+.FooterIconDiscord {
+  height: 15px;
+  width: 25px;
+  margin-left: 10px;
+}
+.FooterIconMedium {
+  height: 20px;
+  width: 25px;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 740px) {
+  .FooterItem {
+    color: #FEF1BE;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    font-size: 15px;
+    margin-left: 10px;
+    font-family: navFont;
+    background-color: transparent;
+  }
+
+  .FooterIconTwitter {
+    display: none;
+  }
+  .FooterIconDiscord {
+    display: none;
+  }
+  .FooterIconMedium {
+    display: none;
+  }
+}

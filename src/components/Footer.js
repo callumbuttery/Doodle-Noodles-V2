@@ -1,12 +1,10 @@
-import React from 'react';
-import {
-    MDBFooter,
-    MDBContainer,
-    MDBCol,
-    MDBRow,
-    MDBIcon
-} from 'mdb-react-ui-kit';
 
+import '../css/Footer.css';
+import 'bootstrap/dist/css/bootstrap.css'
+
+import { Link } from 'react-scroll'
+
+import { Nav, Navbar } from 'react-bootstrap'
 import discordIcon from '../imgs/Discord-Logo.png';
 import twitterIconRed from '../imgs/twitter-icon-red.png';
 import mediumIcon from '../imgs/medium.png';
@@ -15,34 +13,35 @@ import mediumIcon from '../imgs/medium.png';
 
 function Footer() {
     return (
-        <MDBFooter className='bg-dark text-white'>
-            <MDBContainer className='p-4 pb-0' style={{ width: '1200px'}}>
-                <section>
-                    <a className='btn btn-outline-light btn-floating m-1 float-left' href='#!' role='button'>
-                        Testing
-                    </a>
+        <div className="Footer2MainContainer">
+            <div className="Footer2SecondaryContainer">
+                <Navbar sticky="top" expand="sm" collapseOnSelect className="footer2">
+                    <Navbar.Brand>
+                        <p style={{ marginLeft: '350px', paddingTop: '10px' }} alt="Doodle Noodles" className='FooterItem'>© Doodle Noodles 2022</p>
+                    </Navbar.Brand>
 
-                    <a className='btn btn-outline-light btn-floating m-1' href='#!' role='button'>
-                        <MDBIcon fab icon='twitter' />
-                    </a>
+                    <Navbar.Toggle style={{ backgroundColor: "white" }}></Navbar.Toggle>
+                    <Navbar.Collapse>
+                        <Nav className="justify-content-centre" rel="noreferrer" style={{ width: "100%", marginLeft: '150px' }}>
+                            <Link to="mint" className='FooterItem' rel="noreferrer" style={{ textDecoration: 'none' }}>Mint</Link>
+                            <Link to="TeamContainer" className='FooterItem' rel="noreferrer" style={{ textDecoration: 'none' }}>Roadmap</Link>
+                            <Link to="FQAMainContainer" className='FooterItem' rel="noreferrer" style={{ textDecoration: 'none' }}>FAQ</Link>
 
-                    <a className='btn btn-outline-light btn-floating m-1' href='#!' role='button'>
-                        <MDBIcon fab icon='google' />
-                    </a>
-                    <a className='btn btn-outline-light btn-floating m-1' href='#!' role='button'>
-                        <MDBIcon fab icon='instagram' />
-                    </a>
+                            <div style={{ marginLeft: '10px' }}>
+                                <a href="https://twitter.com/DoodleNoodleNFT" rel="noreferrer" target='_blank'
+                                ><img src={twitterIconRed} className="FooterIconTwitter" alt="Twitter Icon" /></a>
+                                <a href="https://discord.com/invite/sendnoods" rel="noreferrer" target='_blank'
+                                ><img src={discordIcon} className="FooterIconDiscord" alt="Discord Icon" /></a>
+                                <a href="https://medium.com/@doodlenoodles" rel="noreferrer" target='_blank'
+                                ><img src={mediumIcon} className="FooterIconMedium" alt="Medium Icon" /></a>
+                            </div>
 
-                    <a className='btn btn-outline-light btn-floating m-1' href='#!' role='button'>
-                        <MDBIcon fab icon='linkedin-in' />
-                    </a>
+                        </Nav>
+                    </Navbar.Collapse>
 
-                    <a className='btn btn-outline-light btn-floating m-1' href='#!' role='button'>
-                        <MDBIcon fab icon='github' />
-                    </a>
-                </section>
-            </MDBContainer>
-        </MDBFooter>
+                </Navbar>
+            </div>
+        </div>
     );
 }
 
