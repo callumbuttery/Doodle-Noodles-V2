@@ -17,10 +17,6 @@
     font-family: "Fredoka One", cursive;
   }
 
-  .wrappedImage {
-    margin-left: 55%;
-  }
-
   .App-logo {
     height: 15vmin;
     pointer-events: none;
@@ -117,10 +113,6 @@
     background-size: 60%;
   }
 
-  .wrappedImage {
-    margin-left: 25%;
-  }
-
   * {
     margin: 0;
   }
@@ -184,10 +176,6 @@
     position: static;
     background-position-x: 50%;
     background-size: 75%;
-  }
-
-  .wrappedImage {
-    margin-left: 35%;
   }
 
   * {
@@ -273,7 +261,4 @@
     margin-bottom: 0%;
   }
 
-  .wrappedImage {
-    margin-left: 0%;
-  }
 }

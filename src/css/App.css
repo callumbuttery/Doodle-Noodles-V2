@@ -41,14 +41,6 @@ h1 {
   text-align: center;
 }
 
-.dappContainer{
-  background-color: #FF123F;
-  height: 400px;
-  width: 400px;
-  border-radius: 25px;
-  filter: drop-shadow(0 0 0.55rem #002741);
-
-}
 
 @keyframes App-logo-spin {
   from {
