@@ -37,8 +37,13 @@
         font-size: 20px;
         margin-top: 10px;
         margin-left: 10px;
+        margin-bottom: 40px;
         position: sticky;
         color: #FEF1BE;
+    }
+    
+    #confetti {
+        display: none;
     }
   
   

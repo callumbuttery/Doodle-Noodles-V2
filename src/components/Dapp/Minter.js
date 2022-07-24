@@ -8,6 +8,7 @@ import axios from "axios";
 import Web3 from "web3";
 import { connect } from "../../redux/blockchain/Actions";
 import { fetchData } from "../../redux/data/Actions";
+import Confetti from 'react-confetti'
 
 function Minter() {
 
@@ -18,7 +19,8 @@ function Minter() {
     const [message, settingMessage] = useState("");
     const [amount, setAmount] = useState(1);
 
-    let total = 1;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
 
     const flipComponents = () => {
         document.getElementById("beginMintingButton").style.display = "none";
@@ -27,14 +29,9 @@ function Minter() {
         document.getElementById("message").style.display = "flex";
     }
 
-    const setInputValue = (e) => {
-        e.target.value = total;
-    }
-
     const mint = async (e) => {
-        console.log('amount: ' + amount);
-
         if (amount >= 1 && amount <= 5) {
+            document.getElementById("confetti").style.display = "flex";
             let web3 = new Web3(window.ethereum);
 
             var costing = web3.utils.toWei(
@@ -137,16 +134,26 @@ function Minter() {
 
 
     return (
-        <div className="mintingProcessContainer">
-            <MDBBtn id="beginMintingButton" size="lg" className='btn-lg beginMintingButton' color='danger' onClick={flipComponents}>Begin Minting</MDBBtn>
-            <div id="mintingProcessButtons">
-                <input id="mintNumber" max={5} min={1} defaultValue={0} type={"number"} onChange={getCount} readonly />
+        <div>
+            <div className="mintingProcessContainer">
+                <MDBBtn id="beginMintingButton" size="lg" className='btn-lg beginMintingButton' color='danger' onClick={flipComponents}>Begin Minting</MDBBtn>
+                <div id="mintingProcessButtons">
+                    <input id="mintNumber" max={5} min={1} defaultValue={0} type={"number"} onChange={getCount} readonly />
+                </div>
+                <div>
+                    <MDBBtn id='mintButton' rounded color="danger" size="lg" onClick={mint}>Mint!</MDBBtn>
+                </div>
+                <span id="message">{message}</span>
             </div>
-            <div>
-                <MDBBtn id='mintButton' rounded color="danger" size="lg" onClick={mint}>Mint!</MDBBtn>
-            </div>
-            <span id="message">{message}</span>
-        </div >
+            <Confetti
+                id="confetti"
+                width={2300}
+                height={1500}
+                numberOfPieces={500}
+            />
+        </div>
+
+
     )
 }
 
