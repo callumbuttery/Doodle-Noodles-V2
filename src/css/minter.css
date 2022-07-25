@@ -60,7 +60,6 @@
 
     @media screen and (min-width: 2000px) and (max-width: 2200px) {
         .beginMintingButton{
-        font-size: 40px;
         width: 170px;
         height: 60px;;
         font-family: "Fredoka One", cursive;
@@ -72,7 +71,6 @@
 
     @media screen and (min-width: 1300px) and (max-width: 2000px) {
         .beginMintingButton{
-        font-size: 40px;
         width: 170px;
         height: 60px;
         font-family: "Fredoka One", cursive;
@@ -103,7 +101,6 @@
 
     @media screen and (min-width: 1200px) and (max-width: 1600px) {
         .beginMintingButton{
-        font-size: 40px;
         width: 170px;
         height: 60px;
         font-family: "Fredoka One", cursive;
@@ -125,7 +122,6 @@
 
     @media screen and (min-width: 1000px) and (max-width: 1300px) {
         .beginMintingButton{
-        font-size: 40px;
         width: 150px;
         height: 40px;
         font-family: "Fredoka One", cursive;
