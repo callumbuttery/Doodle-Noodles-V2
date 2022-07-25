@@ -6,7 +6,7 @@ function welcome() {
         <div className='mint'>
             <div className="App">
                 <header className="App-header">
-                    <div className="wrappedImage">
+                    <div className="">
                         <Minter></Minter>
                     </div>
                 </header>

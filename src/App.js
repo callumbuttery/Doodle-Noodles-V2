@@ -11,7 +11,6 @@ function App() {
         <Slide></Slide>
       </div>
       <Welcome id='Welcome'></Welcome>
-      <Footer></Footer>
     </div>
 
   );
