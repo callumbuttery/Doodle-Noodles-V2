@@ -152,8 +152,6 @@ function Minter() {
                 numberOfPieces={500}
             />
         </div>
-
-
     )
 }
 

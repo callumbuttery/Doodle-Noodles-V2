@@ -81,6 +81,47 @@
         top: 180px;
         left: 100px;
         }
+    
+        #mintNumber{
+            margin-left: 90px;
+            margin-top: 110px;
+            background-color: white;
+            width: 100px;
+            text-align: center;
+        }
+
+        #mintButton{
+            display: none;
+            margin-top: 10px;
+            margin-left: 90px;
+            height: 50px;
+            width: 80px;
+            font-family: "Fredoka One", cursive;
+            text-align: center !important;
+            position: sticky;
+        }
+    }
+
+    @media screen and (min-width: 1200px) and (max-width: 1600px) {
+        .beginMintingButton{
+        font-size: 40px;
+        width: 170px;
+        height: 60px;
+        font-family: "Fredoka One", cursive;
+        position: relative;
+        top: 180px;
+        left: 100px;
+        }
+
+            
+        #mintNumber{
+            margin-left: 90px;
+            margin-top: 120px;
+            background-color: white;
+            width: 80px;
+
+            text-align: center;
+        }
     }
 
     @media screen and (min-width: 1000px) and (max-width: 1300px) {
@@ -92,6 +133,14 @@
         position: relative;
         top: 180px;
         left: 100px;
+        }
+
+        #mintNumber{
+            margin-left: 90px;
+            margin-top: 120px;
+            background-color: white;
+            width: 100px;
+            text-align: center;
         }
     }
 
