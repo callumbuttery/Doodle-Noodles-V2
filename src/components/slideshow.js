@@ -7,6 +7,7 @@ import {
 } from 'mdb-react-ui-kit';
 
 import mainSlide from '../imgs/slide1.png';
+import slide2 from '../imgs/slide2.png'
 
 
 export default function slideshow() {
@@ -22,7 +23,7 @@ export default function slideshow() {
                 <MDBCarouselElement src={mainSlide} alt='...' />
               </MDBCarouselItem>
               <MDBCarouselItem>
-                <MDBCarouselElement src={mainSlide} alt='...' />
+                <MDBCarouselElement src={slide2} alt='...' />
               </MDBCarouselItem>
               <MDBCarouselItem>
                 <MDBCarouselElement src={mainSlide} alt='...' />
