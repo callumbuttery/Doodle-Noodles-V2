@@ -6,8 +6,8 @@ import {
   MDBCarouselElement,
 } from 'mdb-react-ui-kit';
 
-import slide2 from '../imgs/slide2.png'
 import mainSlide from '../imgs/slide1.png';
+import slide2 from '../imgs/Slide2.png'
 
 
 export default function slideshow() {
