@@ -1,9 +1,13 @@
 import '../css/FAQ.css'
 
+import { Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button';
+
 function FAQ() {
     return (
         <div className='FAQ'>
             <div className="FAQmainContainer">
+                <Link className='NavItem' style={{ textDecoration: 'none' }} to='/'><Button variant="link" className="returnButton mx-auto">Return to minting</Button></Link>
                 <div className='SecondaryContainer'>
                     <div className='Heading'>1. What are Doodle Noodles?</div>
                     <div className='subHeading'>Doodle Noodles are designed to be 3333 collectable snake based art NFTs looking to make

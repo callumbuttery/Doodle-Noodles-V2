@@ -34,3 +34,8 @@
     background-color: #FEF1BE;
     padding-bottom: 50px;
 }
+
+.returnButton {
+    display:flex;
+    justify-content:center;
+}
