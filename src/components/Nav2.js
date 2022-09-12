@@ -3,6 +3,7 @@ import '../css/Nav2.css';
 import 'bootstrap/dist/css/bootstrap.css'
 
 import { Link } from 'react-scroll'
+import { BrowserRouter as Router, Link as RouterLink } from 'react-router-dom'
 
 import { Nav, Navbar } from 'react-bootstrap'
 import discordIcon from '../imgs/Discord-Logo.png';
@@ -25,9 +26,9 @@ function Nav2() {
                         <Nav className="justify-content-centre" rel="noreferrer" style={{ width: "100%" }}>
                             <Link to="mint" className='NavItem' rel="noreferrer" style={{ textDecoration: 'none' }}>Mint</Link>
                             <Link to="TeamContainer" className='NavItem' rel="noreferrer" style={{ textDecoration: 'none' }}>Roadmap</Link>
-                            <Link to="FQAMainContainer" className='NavItem' rel="noreferrer" style={{ textDecoration: 'none' }}>FAQ</Link>
+                            <RouterLink className='NavItem' style={{ textDecoration: 'none' }} to='/faq'>FAQ</RouterLink>
 
-                            <div style={{ marginLeft: '10px'}}>
+                            <div style={{ marginLeft: '10px' }}>
                                 <a href="https://twitter.com/DoodleNoodleNFT" rel="noreferrer" target='_blank'
                                 ><img src={twitterIconRed} className="NavIconTwitter" alt="Twitter Icon" /></a>
                                 <a href="https://discord.com/invite/sendnoods" rel="noreferrer" target='_blank'
@@ -41,7 +42,7 @@ function Nav2() {
 
                 </Navbar>
             </div>
-        </div>
+        </div >
     );
 }
 
