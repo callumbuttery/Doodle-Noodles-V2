@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Roboto:wght@300&display=swap');
+
+
+.FAQmainContainer {
+    max-width: 1200px;
+    margin: auto;
+
+}
+
+.SecondaryContainer {
+    max-width: 800px;
+    margin: auto;
+}
+
+.Heading {
+    font-size: 30px;
+    font-family: "Fredoka One", cursive;
+    padding-top: 50px;
+}
+
+.subHeading {
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+.listing {
+    max-width: 700px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+.FAQ {
+    background-color: #FEF1BE;
+    padding-bottom: 50px;
+}
