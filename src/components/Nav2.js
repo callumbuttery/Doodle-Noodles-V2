@@ -24,8 +24,8 @@ function Nav2() {
                     <Navbar.Toggle style={{ backgroundColor: "white" }}></Navbar.Toggle>
                     <Navbar.Collapse>
                         <Nav className="justify-content-centre" rel="noreferrer" style={{ width: "100%" }}>
-                            <Link to="mint" className='NavItem' rel="noreferrer" style={{ textDecoration: 'none' }}>Mint</Link>
-                            <Link to="TeamContainer" className='NavItem' rel="noreferrer" style={{ textDecoration: 'none' }}>Roadmap</Link>
+                            <Link to="mint" className='NavItem' rel="noreferrer" style={{ textDecoration: 'none' }}>MINT</Link>
+                            <Link to="TeamContainer" className='NavItem' rel="noreferrer" style={{ textDecoration: 'none' }}>ROADMAP</Link>
                             <RouterLink className='NavItem' style={{ textDecoration: 'none' }} to='/faq'>FAQ</RouterLink>
 
                             <div style={{ marginLeft: '10px' }}>
