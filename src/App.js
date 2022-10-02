@@ -5,6 +5,7 @@ import Footer from './components/Footer.js'
 
 import Home from './pages/Home';
 import FAQ from './pages/FAQ';
+import Roadmap from './pages/Roadmap';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Switch>
           <Route exact path="/"><Home/></Route>
           <Route exact path="/faq"><FAQ/></Route>
+          <Route exact path="/Roadmap"><Roadmap/></Route>
         </Switch>
       </div>
     </Router>

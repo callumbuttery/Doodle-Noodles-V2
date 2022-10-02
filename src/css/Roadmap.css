@@ -1,0 +1,18 @@
+.roadmap-container {
+    height: 100%;
+    width: 100%;
+}
+
+.roadmap-main-container{
+    height: 100%;
+    width: 100%;
+    background-color: #FEF1BE;
+    padding-bottom: 200px;
+}
+
+.roadmap-img {
+    max-width: 90%;
+    margin-left: 5%;
+    padding-top: 25px;
+    border-radius: 25px;
+}
