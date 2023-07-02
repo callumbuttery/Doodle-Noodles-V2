@@ -136,12 +136,12 @@ function Minter() {
     return (
         <div>
             <div className="mintingProcessContainer">
-                <MDBBtn id="beginMintingButton" size="lg" className='btn-lg beginMintingButton' color='danger' onClick={flipComponents}>Begin Minting</MDBBtn>
+                <MDBBtn id="beginMintingButton" size="lg" className='btn-lg beginMintingButton' color='danger'>Begin Minting</MDBBtn>
                 <div id="mintingProcessButtons">
-                    <input id="mintNumber" max={5} min={1} defaultValue={0} type={"number"} onChange={getCount} readonly />
+                    <input id="mintNumber" max={5} min={1} defaultValue={0} type={"number"} readonly />
                 </div>
                 <div>
-                    <MDBBtn id='mintButton' rounded color="danger" size="lg" onClick={mint}>Mint!</MDBBtn>
+                    <MDBBtn id='mintButton' rounded color="danger" size="lg">Mint!</MDBBtn>
                 </div>
                 <span id="message">{message}</span>
             </div>
